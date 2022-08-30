@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   return (
    <div>
-    Just made a change 
+    made a new change on paul branch 
    </div>
   )
 }
