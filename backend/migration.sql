@@ -17,7 +17,8 @@ CREATE TABLE saved_items(
     category TEXT,
     description TEXT,
     image TEXT,
-    user_id INTEGER NOT NULL FOREIGN KEY REFERENCES users(user_id)
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 CREATE TABLE posted_items(
@@ -28,5 +29,6 @@ CREATE TABLE posted_items(
     category TEXT,
     description TEXT,
     image TEXT,
-    user_id INTEGER NOT NULL FOREIGN KEY REFERENCES users(user_id)
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
