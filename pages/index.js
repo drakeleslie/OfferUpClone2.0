@@ -7,5 +7,6 @@ export default function Home() {
   return <div>
     Home 
     <Link href="/login">Login</Link>
+    <Link href="/saved">Saved</Link>
   </div>;
 }
