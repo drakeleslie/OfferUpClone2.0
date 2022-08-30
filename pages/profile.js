@@ -1,11 +1,9 @@
-import Header from "../components/paulscomponents/Header"
-
 const profile = () => {
   return (
-    <div>profile
-    <Header />
-    </div>
-  )
-}
+    <>
+      <div>profile</div>
+    </>
+  );
+};
 
-export default profile
+export default profile;
