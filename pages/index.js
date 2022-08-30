@@ -3,5 +3,6 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  return <div>made a new change on John branch</div>;
+  return (<div>made a new change Matt branch</div>
+  )
 }
