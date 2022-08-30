@@ -1,8 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-
+import Link from "next/link";
+//home page
 export default function Home() {
-  return (<div>made a new change Matt branch</div>
-  )
+  return <div>
+    Home 
+    <Link href="/login">Login</Link>
+  </div>;
 }
