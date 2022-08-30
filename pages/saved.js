@@ -1,8 +1,10 @@
-import React from 'react'
+import SavedItems from "../components/mattscomponents/SavedItems"
 
 const saved = () => {
   return (
-    <div>saved</div>
+    <div>
+      <SavedItems/>
+    </div>
   )
 }
 
