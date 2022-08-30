@@ -1,7 +1,11 @@
 //login page
+
+import Userlogin from "../components/kamscomponents/userlogin"
 const login = () => {
   return (
-    <div>login</div>
+    <div>
+      <Userlogin />
+    </div>
   )
 }
 
