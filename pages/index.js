@@ -1,11 +1,8 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  return (
-   <div>
-    Just made a change 
-   </div>
+  return (<div>made a new change Matt branch</div>
   )
 }
