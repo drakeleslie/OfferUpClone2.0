@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import QuickSave from "./QuickSave";
+import Link from "next/link";
+import axios from "axios";
 
 function SavedItems(props) {
-const [savedItems, setSavedItems] = useState([])
+    const [savedItems, setSavedItems] = useState([]);
+
+    // axios.get(`http//localhost:3000/api/saved_items`)
 
     return (
         <div>
             Saved Items
-            <div onClick={QuickSave}>
-                click on this
+            <div>
+                <Link href="/QuickSave">click on this</Link>
             </div>
-            {/* <QuickSave/> */}
         </div>
     );
 }
