@@ -4,6 +4,9 @@ import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import NavBar from "../components/johnscomponents/NavBar";
 import Container from "../components/paulscomponents/Container";
+
+
+
 //home page
 export default function Home() {
   return (
@@ -11,9 +14,7 @@ export default function Home() {
     <div>
       <Container >
         {/* Nav bar will standard on all pages so it is the first child of contianer */}
-        <NavBar />
-        {/* everything else for this page will follow here */}
-        <Home />
+
       </Container>
     </div>
   );
