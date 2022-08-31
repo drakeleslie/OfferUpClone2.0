@@ -1,7 +1,11 @@
-function QuickSave(props) {
+import React from "react"
+
+const QuickSave = ({allItems, removeItem, title, price, category, desription, image}) => {
+
+
     return (
-        <div>
-            Quick Save
+        <div onClick={handleRemove}>
+            oops
         </div>
     );
 }

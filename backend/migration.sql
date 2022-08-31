@@ -4,7 +4,7 @@ CREATE TABLE users(
     user_id SERIAL PRIMARY KEY,
     username TEXT,
     email TEXT,
-    password TEXT,
+    pass TEXT,
     city TEXT,
     state TEXT,
     picture TEXT
@@ -34,5 +34,3 @@ CREATE TABLE posted_items(
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-INSERT INTO users (username, email ,password, city, state, picture) VALUES ('superuser', 'superuser@superuser.com', 'superuser', 'Denver', 'Colorado', 'https://nwsid.net/wp-content/uploads/2015/05/dummy-profile-pic-300x300.png' );
-INSERT INTO saved_items (api_id, title, price, category, description, image, user_id) VALUES (1, 'title', 'price', 'category', 'description', 'image', 1);
