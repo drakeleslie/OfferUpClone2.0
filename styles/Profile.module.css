@@ -1,0 +1,75 @@
+.hr {
+  display: block;
+  unicode-bidi: isolate;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  overflow: hidden;
+  border-style: inset;
+  border-width: 1px;
+  margin: 16px 0px;
+  background-color: #e2e2e2;
+}
+
+.profileInfoContainer {
+  padding: 0px 16px;
+  margin: 0px auto;
+  box-sizing: inherit;
+  display: block;
+}
+.jss3 {
+  margin: 16px 0px;
+}
+.MuiDivider-root {
+  border: none;
+  height: 1px;
+  margin: 0;
+  flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+.jss106 {
+  margin: 0px auto;
+  padding: 0px 24px;
+}
+.MuiGrid-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+.jss2 {
+  width: 100%;
+}
+.MuiGrid-item {
+  margin: 0;
+  box-sizing: border-box;
+}
+@media (min-width: 720px) {
+  .MuiGrid-grid-md-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+}
+@media (min-width: 1440px) {
+  .MuiGrid-grid-xl-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+}
+@media (min-width: 1024px) {
+  .MuiGrid-grid-lg-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+}
+@media (min-width: 720px) {
+  .MuiGrid-grid-md-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+}
