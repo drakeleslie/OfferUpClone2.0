@@ -16,7 +16,10 @@ server
   .get('/api/authenticate', (req, res) => {
     console.log(`Recieved Authentication Request: ${req.body}`)
 
+
+    res.send(req.body)
   })
+//to get saved items by user id 
   .get('/api/saved', (req, res) => {
     console.log(`Recieved Saved Request: ${req.body}`)
     res.send("hello")
