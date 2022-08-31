@@ -6,7 +6,6 @@ export default function Home() {
     //container will be the top level component to standardize sizing across all pages 
     <div>
       <Container />
-        {/* all page items will be inside container */}
     </div>
   );
 }
