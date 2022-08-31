@@ -1,11 +1,11 @@
-import Header from "../components/paulscomponents/Header"
+import UserProfile from "../components/drakescomponents/userProfile";
 
 const profile = () => {
   return (
-    <div>profile
-    <Header />
-    </div>
-  )
-}
+    <>
+      <UserProfile />
+    </>
+  );
+};
 
-export default profile
+export default profile;
