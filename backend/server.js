@@ -14,12 +14,21 @@ server.use(cors());
 server
 //get request for checking login credentials
   .get('/api/authenticate', (req, res) => {
+    console.log(`Recieved Authentication Request: ${req.body}`)
+
 
     res.send(req.body)
   })
 //to get saved items by user id 
   .get('/api/saved', (req, res) => {
     console.log(`Recieved Saved Request: ${req.body}`)
+    res.send("hello")
+    // console.log(pool)
+    pool.query("SELECT * FROM saved_items").then((data) => {
+      // res.send(data.rows)
+      console.log("hello again")
+      console.log(data)
+    })
   })
 
 

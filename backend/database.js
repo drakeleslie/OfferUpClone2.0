@@ -14,4 +14,3 @@ export const pool = new pg.Pool({
     : {}),
 });
 
-// console.log((await pool.query('SELECT * FROM users')).rows);
