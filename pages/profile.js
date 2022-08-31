@@ -1,7 +1,9 @@
+import UserProfile from "../components/drakescomponents/userProfile";
+
 const profile = () => {
   return (
     <>
-      <div>profile</div>
+      <UserProfile />
     </>
   );
 };
