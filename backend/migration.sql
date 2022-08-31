@@ -1,14 +1,18 @@
-DROP TABLE IF EXISTS users, saved_items, posted_items;
+DROP TABLE IF EXISTS saved_items;
+DROP TABLE IF EXISTS posted_items;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE users(
-    user_id SERIAL PRIMARY KEY,
+    user_id SERIAL,
     username TEXT,
     email TEXT,
     pass TEXT,
     city TEXT,
     state TEXT,
-    picture TEXT
+    picture TEXT,
+    PRIMARY KEY (user_id)
 );
+
 
 CREATE TABLE saved_items(
     item_id SERIAL,
@@ -33,4 +37,5 @@ CREATE TABLE posted_items(
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
+
 
