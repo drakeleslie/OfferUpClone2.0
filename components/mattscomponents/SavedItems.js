@@ -27,7 +27,7 @@ function SavedItems(props) {
         <div>
             <div className={"min-w-full mt-20"}><Link href="/">Home/</Link> Account/ Saved Items</div>
             <div className={"flex flex-grow-1 flex-row ml-12 mt-20"}>
-                <div className={"block border-solid border-zinc-300 border-4 rounded-lg h-30 w-18 mt-8 mr-10"}>
+                <div className={"block border-solid border-zinc-300 border-2 rounded-lg h-30 w-18 mt-8 mr-10"}>
                     <div className={"text-xl font-medium p-1 pl-3"}>Account</div>
                     <div className={"font-medium p-1 pl-3"}>Transactions</div>
                     <div className={"hover:bg-zinc-200 p-1 pl-3 font-light"}>Purchases / Sales</div>
@@ -50,10 +50,10 @@ function SavedItems(props) {
                                     <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlqBEzRduwaunqttBNlrwoEM6QcxjZyJ38KlluuWck2mwpgCS9I6X-FG2YGuef3hfFwis&usqp=CAU"} className="h-16 rounded"></img>
                                     <div className="pt-4 pl-2">{item.title} plus a bit more title and more and more and more</div>
                                 </li>
-                                <div className="hover:underline" id={item.item_id}
+                                <div className="hover:underline text-emerald-500 font-semibold" id={item.item_id}
                                         onClick={handleDelete}>Delete
                                 </div>
-                                <hr className={"h-0.5 bg-zinc-300 "}></hr>
+                                <hr className={"h-0.5 bg-zinc-300 p-0"}></hr>
                             </ul>
                         </div>
                     </div>
