@@ -2,7 +2,6 @@
     background-color: green;
     color: #e9dbdb;
     text-align: center;
-    margin-bottom: 100px;
     padding: 14px 16px;
     font-size: 17px;
     position: absolute;
@@ -13,6 +12,14 @@
 
 }
 
+.title {
+    font-size: 1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    line-height: 1.5;
+    text-transform: none;
+}
+
 .events {
-text-decoration-color: pink;
+    text-decoration-color: pink;
 }
