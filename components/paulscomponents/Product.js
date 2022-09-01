@@ -36,6 +36,7 @@ function getRandomInt(min, max) {
                 <p key={item.id + 'h'}></p> 
 
           </div>
+        </div>  
         </a>
       ))}
     </>
