@@ -33,7 +33,6 @@ server.post('/api/authenticate', async (req, res) => {
           console.log("in server -- user is authorized")
         }
     })
-
 //to get saved items by user id 
 server.get('/api/saved/:user_id', async (req, res) => {
     const userId = req.params.user_id;
