@@ -6,7 +6,7 @@ CREATE TABLE users(
     user_id SERIAL,
     username TEXT,
     email TEXT,
-    pass TEXT,
+    password TEXT,
     city TEXT,
     state TEXT,
     picture TEXT,

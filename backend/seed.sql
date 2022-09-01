@@ -1,4 +1,4 @@
-INSERT INTO users (username, email , pass, city, state, picture) VALUES ('superuser', 'superuser@superuser.com', 'superuser', 'Denver', 'Colorado', 'https://nwsid.net/wp-content/uploads/2015/05/dummy-profile-pic-300x300.png' );
+INSERT INTO users (username, email , password, city, state, picture) VALUES ('superuser', 'superuser@superuser.com', 'superuser', 'Denver', 'Colorado', 'https://nwsid.net/wp-content/uploads/2015/05/dummy-profile-pic-300x300.png' );
 INSERT INTO posted_items (api_id, title, price, category, description, image, user_id) VALUES (1, 'title', 'price', 'category', 'description', 'image', 1);
 INSERT INTO saved_items (api_id, title, price, category, description, image, user_id) VALUES (1, 'My Car', '$10,000', 'vehicles', 'description', 'image', 1);
 INSERT INTO saved_items (api_id, title, price, category, description, image, user_id) VALUES (1, 'Your Car', '$9,000', 'vehicles', 'description', 'image', 1);

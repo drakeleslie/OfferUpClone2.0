@@ -1,22 +1,22 @@
-import create from "zustand";
+// import create from "zustand";
 import { useRouter } from "next/router";
 // import Image from "next/image";
 // import loupe from "../public/images/loupe.png";
 import styles from "../styles/header.module.css";
 
-const useStore = create((set) => ({
-  keyword: "",
-  setKeyword: (keyword) =>
-    set((state) => ({
-      ...state,
-      keyword,
-    })),
-}));
+// const useStore = create((set) => ({
+//   keyword: "",
+//   setKeyword: (keyword) =>
+//     set((state) => ({
+//       ...state,
+//       keyword,
+//     })),
+// }));
 
 const SearchBar = () => {
-  const router = useRouter();
-  const keyword = useStore((state) => state.keyword);
-  const setKeyword = useStore((state) => state.setKeyword);
+  // const router = useRouter();
+  // const keyword = useStore((state) => state.keyword);
+  // const setKeyword = useStore((state) => state.setKeyword);
 
   const handleClick = (e) => {
     e.preventDefault();
