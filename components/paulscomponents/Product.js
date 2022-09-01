@@ -14,7 +14,6 @@ const Product = () => {
      }).then(res => setProducts(res.data))
   
   }, [])
-  products.map(item => console.log(item))
 //   if (!products) return <div></div> 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -25,19 +24,22 @@ function getRandomInt(min, max) {
   return (
    <> 
       { products.map(item => (
-        <a key={item.id + 'a'}className={styles.atag}>
+        <div key={item.id + 'a'}className={styles.atag}>
         <div key={item.id + 'b'}className={styles.div1}>
           <span key={item.id + 'c'}className={styles.span1} >
-            <img key={item.id + 'd'}className={styles.productimage} src={`${item.images[getRandomInt(0,2)]}`} alt="product"/>
+            <img key={item.id + 'd'}className={styles.productimage} src={`${item.images[1]}`} alt="product"/>
           </span>
           <div key={item.id + 'e'}> 
-                <Link href="/viewitem" key={item.id + 'f'} className={styles.itemtitle}>{item.title}</Link>  
+                <Link href={{
+                  pathname: "viewitem",
+                  query: { item: JSON.stringify(item) }
+              }}><a key={item.id + 'f'} className={styles.itemtitle}>{item.title}</a> 
+              </Link>  
                 <p key={item.id + 'g'}>${item.price}</p> 
                 <p key={item.id + 'h'}></p> 
-
           </div>
         </div>  
-        </a>
+        </div>
       ))}
     </>
   );

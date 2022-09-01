@@ -6,7 +6,7 @@
     padding: 14px 16px;
     font-size: 17px;
     position: absolute;
-    width: fill;
+    width: stretch;
     position: fixed;
     width: stretch;
     z-index: 2000;
