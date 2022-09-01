@@ -2,15 +2,15 @@ import React from "react";
 import Link from "next/link";
 import styles from "../../styles/header.module.css";
 import Userlogin from "../kamscomponents/userlogin";
+import SearchBar from "../../pages/SearchBar";
 
 const NavBar = () => {
   const { user } = Userlogin();
+  const { search } = SearchBar();
 
   return (
     <nav className="flex py-4 px-6 border-b border-gray-200">
-      <Link href="/search">
-        <a>Search</a>
-      </Link>
+      <SearchBar />
       <Link href="/saved">
         <a className="ml-2">Saved</a>
       </Link>
