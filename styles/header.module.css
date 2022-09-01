@@ -6,6 +6,8 @@
     font-size: 17px;
     position: absolute;
     width: fill;
+    position: fixed;
+    width: stretch;
     z-index: 2000;
 
 }

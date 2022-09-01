@@ -5,7 +5,7 @@ const UserProfileInfo = ({ user, itemsOnSale }) => {
   return (
     <div className={styles.jss106}>
       {/* top portion of user page, provides user information (username, join date, pic etc..) */}
-      <div className={`${styles.MuiGrid - container} ${styles.jss2}`}>
+      <div className={`${styles.MuiGrid-container} ${styles.jss2}`}>
         {/* username, joindate, location, review,  */}
         <div
           className={`${styles.MuiGrid - item} ${
