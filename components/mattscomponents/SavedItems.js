@@ -47,8 +47,8 @@ function SavedItems(props) {
                             <ul>
                                 <li className="h-24 flex flex-row">
                                     {/* <img src={item.image}></img> */}
-                                    <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlqBEzRduwaunqttBNlrwoEM6QcxjZyJ38KlluuWck2mwpgCS9I6X-FG2YGuef3hfFwis&usqp=CAU"} className="h-16"></img>
-                                    <div className="pt-4 pl-2">{item.title} plus a bit more title</div>
+                                    <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlqBEzRduwaunqttBNlrwoEM6QcxjZyJ38KlluuWck2mwpgCS9I6X-FG2YGuef3hfFwis&usqp=CAU"} className="h-16 rounded"></img>
+                                    <div className="pt-4 pl-2">{item.title} plus a bit more title and more and more and more</div>
                                 </li>
                                 <div className="hover:underline" id={item.item_id}
                                         onClick={handleDelete}>Delete
