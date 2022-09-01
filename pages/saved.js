@@ -1,15 +1,9 @@
-import SavedItems from "../components/mattscomponents/SavedItems"
-import Header from "../components/johnscomponents/Header"
+import Container2 from "../components/mattscomponents/Container2"
 
 const saved = () => {
   return (
     <div>
-      <div>
-        <Header/>
-      </div>
-      <div>
-        <SavedItems/>
-      </div>
+      <Container2/>
     </div>
   )
 }
