@@ -8,17 +8,10 @@ const Userlogin = () => {
     const [username, setUsername] =useState('')
     const [password, setPassword] =useState('')
     const [currentUser, setCurrentUser] = useState('')
-        
-      const login = async (event) =>{
-            event.preventDefault()
-                await axios({
-                  method: 'post',
-                  url: 'http://localhost:8000/api/authenticate', 
-                  data:{
-                    username: username,
-                    password: password
-                  }
-                })
+        // http://localhost:8000/api/authenticate',
+      const login = (event) => {
+        event.preventDefault()
+        axios.get(`http://localhost:8000/api/authenticate/superuser/superuser`)
                 .then(data => {
                   console.log(data)
                   if (data.data === false){ // email/password is not valid
@@ -33,26 +26,26 @@ const Userlogin = () => {
                   }
                 })
                 .catch(err => console.log(err))     
-
- }
+              }
+ 
   return (
  <div className='p-8  justify-center items-center h-screen flex'>
       <form className="flex border-2 rounded-3xl p-7 shadow-xl  h-[80%] w-[40%]  ">
       <div className="divide-y-4 divide-white  h-6 w-full text-center font-extrabold space-y-2 grid justify-items-stretch">
       <a href="/"className="justify-self-end text-slate-400 font-light -mt-6">cancel</a> Log In
           <br></br> <br></br>
-          <span className="text-green-600 text-3xl font-extrabold ">
+          <span className="text-emerald-600 text-3xl font-extrabold ">
             OfferDown
           </span>
         <div >
         <label
               className="block text-left text-gray-700 text-sm font-bold mb-2"
-              for="username"
+              
             >
               Name
             </label>
           <input 
-            className="bg-white border-green-500 border-2 shadow-inner rounded font-thin p-2 flex-1 w-full "
+            className="bg-white border-emerald-500 border-2 shadow-inner rounded font-thin p-2 flex-1 w-full "
             id='username' 
             type='text'
             value={username}
@@ -63,12 +56,12 @@ const Userlogin = () => {
         <div>
         <label
               className="block text-left text-gray-700 text-sm font-bold mb-2"
-              for="username"
+              
             >
               Password
             </label>
           <input 
-            className="bg-white border-green-500 border-2 shadow-inner rounded  p-2 flex-1 w-full "
+            className="bg-white border-emerald-500 border-2 shadow-inner rounded  p-2 flex-1 w-full "
             id='password' 
             type='text'
             value={password}
@@ -78,11 +71,11 @@ const Userlogin = () => {
             </div>
           <a href="#" className="text-small justify-self-start font-light underline">Forgot your password?</a>
           <div >
-            <a href='signup' className='text-small justify-self-start  text-sm text-green-600 font-bold '>Don't have an account? Sign up</a>
+            <a href='signup' className='text-small justify-self-start  text-sm text-emerald-600 font-bold '>Don't have an account? Sign up</a>
             <button 
             type='submit'
             onClick={login}
-            className="bg-slate-100 text-slate-400 hover:bg-green-600 hover:text-white duration-300  shadow p-2 mt-2 mr-6 rounded-full  ml-2 w-[95%]">
+            className="bg-slate-100 text-slate-400 hover:bg-emerald-600 hover:text-white duration-300  shadow p-2 mt-2 mr-6 rounded-full  ml-2 w-[95%]">
             Log in  
             </button>
         </div>
