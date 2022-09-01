@@ -3,10 +3,11 @@
     position: fixed;
     color: #e9dbdb;
     text-align: center;
+    margin-bottom: 100px;
     padding: 14px 16px;
     font-size: 17px;
     position: fixed;
-    width: fill;
+    width: stretch;
     z-index: 2000;
 
 }

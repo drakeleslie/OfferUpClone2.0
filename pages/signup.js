@@ -1,10 +1,13 @@
 import React from "react";
-
+import Head from "../components/johnscomponents/Header"
+import UserSignUp from "../components/kamscomponents/UserSignUp";
 const SignUp = () => {
   return (
-    <div>
-      <h1>Sign Up</h1>
-    </div>
+   <div>
+    <Head />
+    <UserSignUp />
+   </div>
+   
   );
 };
 
