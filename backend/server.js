@@ -42,7 +42,28 @@ server
     pool.query("SELECT * FROM saved_items").then((data) => {
       res.send(data.rows);
     });
+  })
+
+  //get items being sold by userId
+  .get("/api/posted/:userId", async (req, res) => {
+    const userId = req.params.userId;
+    pool
+      .query(`SELECT * FROM posted_items WHERE user_id =$1`, [userId])
+      .then((data) => {
+        res.send(data.rows);
+      });
+  })
+
+  //get user by Id
+  .get("/api/user/:userId", async (req, res) => {
+    const userId = req.params.userId;
+    pool
+      .query(`SELECT * FROM users WHERE user_id =$1`, [userId])
+      .then((data) => {
+        res.send(data.rows[0]);
+      });
   });
+
 server.listen(port, () => {
   console.log(`Express server is running on port: ${port}`);
 });
