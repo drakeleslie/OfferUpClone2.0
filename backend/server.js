@@ -1,10 +1,9 @@
 import express, { response } from "express";
 import { pool } from "./database.js";
 import dotenv from "dotenv";
-import cors from "cors"
+import cors from "cors";
 
-
-dotenv.config(); 
+dotenv.config();
 
 //config server
 const server = express();
@@ -13,6 +12,7 @@ server.use(express.json());
 server.use(cors());
 //routes
 
+
 //get request for checking login credentials
 server.get('/api/authenticate', (req, res) => {
     pool.query("SELECT * FROM users "), (err, result)=>{
@@ -20,7 +20,7 @@ server.get('/api/authenticate', (req, res) => {
     }
   })
 
-  server.post('/api/authenticate', async (req, res) => {
+server.post('/api/authenticate', async (req, res) => {
     const getUserAndPassword = (
       await pool.query(`SELECT * FROM users WHERE username = $1 AND password = $2;`, 
       [req.body.username,req.body.password])); // query db for input username and password
@@ -43,7 +43,7 @@ server.get('/api/saved/:user_id', async (req, res) => {
     })
 
   //to delete from saved items
-  server.delete('/api/saved/:user_id/:item_id', (req, res, next) => {
+server.delete('/api/saved/:user_id/:item_id', (req, res, next) => {
     const userId = req.params.user_id;
     const itemId = req.params.item_id;
     console.log(userId, itemId)
@@ -58,7 +58,27 @@ server.get('/api/saved/:user_id', async (req, res) => {
   })
     
 })
+//get items being sold by userId
+server.get("/api/posted/:userId", async (req, res) => {
+    const userId = req.params.userId;
+    pool
+      .query(`SELECT * FROM posted_items WHERE user_id =$1`, [userId])
+      .then((data) => {
+        res.send(data.rows);
+      });
+  })
+
+  //get user by Id
+server.get("/api/user/:userId", async (req, res) => {
+    const userId = req.params.userId;
+    pool
+      .query(`SELECT * FROM users WHERE user_id =$1`, [userId])
+      .then((data) => {
+        res.send(data.rows[0]);
+      });
+  });
+
 
 server.listen(port, () => {
-    console.log(`Express server is running on port: ${port}`)
-})
+  console.log(`Express server is running on port: ${port}`);
+});

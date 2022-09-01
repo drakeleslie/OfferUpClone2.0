@@ -32,7 +32,7 @@
   margin: 0px auto;
   padding: 0px 24px;
 }
-.MuiGrid-container {
+.MuiGridContainer {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -41,26 +41,26 @@
 .jss2 {
   width: 100%;
 }
-.MuiGrid-item {
+.MuiGridItem {
   margin: 0;
   box-sizing: border-box;
 }
 @media (min-width: 720px) {
-  .MuiGrid-grid-md-5 {
+  .MuiGridGridMd5 {
     flex-grow: 0;
     max-width: 41.666667%;
     flex-basis: 41.666667%;
   }
 }
 @media (min-width: 1440px) {
-  .MuiGrid-grid-xl-4 {
+  .MuiGridGridXl4 {
     flex-grow: 0;
     max-width: 33.333333%;
     flex-basis: 33.333333%;
   }
 }
 @media (min-width: 1024px) {
-  .MuiGrid-grid-lg-4 {
+  .MuiGridGridLg4 {
     flex-grow: 0;
     max-width: 33.333333%;
     flex-basis: 33.333333%;

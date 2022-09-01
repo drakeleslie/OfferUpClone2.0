@@ -3,9 +3,11 @@ import Link from 'next/link'
 import axios from 'axios'
 import styles from "../../styles/Home.module.css"
 
+
 const Product = () => {
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
   useEffect(() => {
+
      axios({
         method: 'get',
         url: 'https://api.escuelajs.co/api/v1/products',
@@ -32,13 +34,12 @@ function getRandomInt(min, max) {
                 <Link href="viewitem" key={item.id + 'f'} className={styles.itemtitle}>{item.title}</Link>  
                 <p key={item.id + 'g'}>${item.price}</p> 
                 <p key={item.id + 'h'}></p> 
+
           </div>
-        </div>
-    </a>
-   ))}
+        </a>
+      ))}
     </>
-    )
+  );
+};
 
-}
-
-export default Product
+export default Product;
