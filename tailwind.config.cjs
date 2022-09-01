@@ -5,7 +5,15 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      //DONT DELETE THIS 
+      // gridTemplateColumns: {
+      //   // Simple 16 column grid
+      //   'auto-fill': 'repeat(auto-fill, minmax(177px, 1fr))',
+
+      // }
+    },
   },
-  plugins: [require('@tailwindcss/forms')],
-}
+  plugins: [],
+};
+// require("@tailwindcss/forms");

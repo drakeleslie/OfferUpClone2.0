@@ -31,7 +31,7 @@ function SavedItems(props) {
                     <div className={"bg-green-100"}>Saved items</div>
                     <div>Account</div>
                     <div>Account settings</div>
-                    <div className="hover:underline">View public profile</div>
+                    <div className="underline">View public profile</div>
                 </div>
                 <div className={"flex-grow-1 font-normal text-base p-1 font-serif ml-7"}>
                     <h2 className="font-serif text-xl font-black">Saved Items</h2>

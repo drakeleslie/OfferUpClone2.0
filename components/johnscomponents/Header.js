@@ -1,10 +1,14 @@
-import Link from "next/link"
+import Link from "next/link";
+import NavBar from "./NavBar";
 const Header = () => {
   return (
-    <div>Header
-    <Link href="/login">Login</Link> 
-    </div>
-  )
-}
+    <header
+      className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed
+      MuiAppBar-colorPrimary jss26 jss18 mui-fixed MuiPaper-elevation4"
+    >
+      <NavBar />
+    </header>
+  );
+};
 
-export default Header
+export default Header;
