@@ -4,8 +4,12 @@ import Header from "../components/johnscomponents/Header"
 const saved = () => {
   return (
     <div>
-      <Header/>
-      <SavedItems/>
+      <div>
+        <Header/>
+      </div>
+      <div>
+        <SavedItems/>
+      </div>
     </div>
   )
 }
