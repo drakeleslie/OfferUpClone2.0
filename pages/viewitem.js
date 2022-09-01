@@ -1,8 +1,10 @@
-import React from 'react'
+import  ViewItemContainer  from "../components/paulscomponents/ViewItemContainer"
 
 const viewitem = () => {
   return (
-    <div>viewitem</div>
+    <div>
+      <ViewItemContainer />
+    </div>
   )
 }
 

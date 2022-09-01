@@ -31,7 +31,7 @@ function getRandomInt(min, max) {
             <img key={item.id + 'd'}className={styles.productimage} src={`${item.images[getRandomInt(0,2)]}`} alt="product"/>
           </span>
           <div key={item.id + 'e'}> 
-                <Link href="viewitem" key={item.id + 'f'} className={styles.itemtitle}>{item.title}</Link>  
+                <Link href="/viewitem" key={item.id + 'f'} className={styles.itemtitle}>{item.title}</Link>  
                 <p key={item.id + 'g'}>${item.price}</p> 
                 <p key={item.id + 'h'}></p> 
 
