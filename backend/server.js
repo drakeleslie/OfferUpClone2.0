@@ -33,7 +33,6 @@ server
           console.log("in server -- user is authorized")
         }
     })
- })
 //to get saved items by user id 
   .get('/api/saved', async (req, res) => {
     console.log(`Recieved Saved Request: ${req.body}`)
