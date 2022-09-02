@@ -1,18 +1,22 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import axios from 'axios'
 import {useState} from 'react'
 import Router from 'next/router'
 import Link from 'next/link'
+import validateForm from '../kamscomponents/formValidation'
+
 
 const Userlogin = () => {
-    const [email, setEmail] = useState('')
-    const [username, setUsername] =useState('')
-    const [password, setPassword] =useState('')
-    const [currentUser, setCurrentUser] = useState('')
-        // http://localhost:8000/api/authenticate',
-      const login = (event) => {
-        event.preventDefault()
-        axios.get(`http://localhost:8000/api/authenticate/superuser/superuser`)
+ 
+  const [username, setUsername] =useState('')
+  const [password, setPassword] =useState('')
+  const [currentUser, setCurrentUser] = useState('')
+  // http://localhost:8000/api/authenticate',
+  const login = (event) => {
+    event.preventDefault()
+    axios.get(`http://localhost:8000/api/authenticate/${username}/${password}`)
                 .then(data => {
+
                   console.log(data.data, 'data from db ')
                   if (data.data.bool === false){ // email/password is not valid
                   } else if (data.data.bool === true){ // email/password is valid
@@ -21,6 +25,7 @@ const Userlogin = () => {
                       pathname: '/',
                       query: { data: JSON.stringify(data), test: 'test' }
                     })
+
 
                   } else { // edge case 
                     console.log("issue with user email ")
@@ -63,7 +68,9 @@ const Userlogin = () => {
             </label>
           <input 
             className="bg-white border-emerald-500 border-2 shadow-inner rounded  p-2 flex-1 w-full "
-            id='password' 
+            id='password'
+            minLength="6"
+            required
             type='text'
             value={password}
             onChange={event => setPassword(event.target.value)} //password is set to value of input
