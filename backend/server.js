@@ -46,9 +46,6 @@ server.post('/api/newUser', async (req, res) => {
 
 
 });
-
-
-
 //to get saved items by user id
 server.get("/api/saved/:user_id", async (req, res) => {
   const userId = req.params.user_id;
