@@ -4,13 +4,12 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const pool = new pg.Pool({
-    connectionString: process.env.DATABASE_URL,
-    ...(process.env.NODE_ENV === "production" 
+  connectionString: process.env.DATABASE_URL,
+  ...(process.env.NODE_ENV === "production"
     ? {
         ssl: {
-            rejectUnauthorized: false
-        }
-    }
+          rejectUnauthorized: false,
+        },
+      }
     : {}),
 });
-

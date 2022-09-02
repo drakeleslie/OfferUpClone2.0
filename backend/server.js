@@ -14,32 +14,33 @@ server.use(cors());
 
 //get request for checking login credentials
 
-
-server.get('/api/authenticate/:username/:password', async (req, res) => {
-  console.log(req.params)
+server.get("/api/authenticate/:username/:password", async (req, res) => {
+  console.log(req.params);
   const username = req.params.username;
-  const password = req.params.password 
-  const getUserNameAndPassword = ( await pool.query("SELECT * FROM users WHERE (username = $1 AND password = $2);", [username, password]))
-  let checkForUserID = getUserNameAndPassword.rows[0].user_id
-  if(!checkForUserID){
-    res.send(false)
-  } else{
-    res.send(true)
+  const password = req.params.password;
+  const getUserNameAndPassword = await pool.query(
+    "SELECT * FROM users WHERE (username = $1 AND password = $2);",
+    [username, password]
+  );
+  let checkForUserID = getUserNameAndPassword.rows[0].user_id;
+  if (!checkForUserID) {
+    res.send(false);
+  } else {
+    res.send(true);
   }
-  
-})
-  
+});
+
 //create new user
-server.post('/api/newUser', async (req, res) => {
- const newUserName = req.body.username; 
- const newEmail = req.body.email; 
- const newPassword = req.body.password; 
-    pool.query("INSERT INTO users(username, email, password) VALUES ($1, $2, $3)", 
-    [newUserName,newEmail, newPassword ])
-    console.log("Server updated with new data")
-})
-
-
+server.post("/api/newUser", async (req, res) => {
+  const newUserName = req.body.username;
+  const newEmail = req.body.email;
+  const newPassword = req.body.password;
+  pool.query(
+    "INSERT INTO users(username, email, password) VALUES ($1, $2, $3)",
+    [newUserName, newEmail, newPassword]
+  );
+  console.log("Server updated with new data");
+});
 
 //to get saved items by user id
 server.get("/api/saved/:user_id", async (req, res) => {
