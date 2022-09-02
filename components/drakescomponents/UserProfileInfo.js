@@ -27,7 +27,26 @@ const UserProfileInfo = ({ user }) => {
             </div>
           </div>
           <div className={styles.leftProfileBot}>
-            <p>//bought sold and followers</p>
+            <div className={styles.boughtSoldFollowers}>
+              <div className={styles.bsfContainer}>
+                <p>
+                  <b>*num*</b>
+                </p>
+                <p>Bought</p>
+              </div>
+              <div className={styles.bsfContainer}>
+                <p>
+                  <b>*num*</b>
+                </p>
+                <p>Sold</p>
+              </div>
+              <div className={styles.bsfContainer}>
+                <p>
+                  <b>*num*</b>
+                </p>
+                <p>Followers</p>
+              </div>
+            </div>
           </div>
         </div>
         <div className={styles.rightProfileInfo}>
@@ -75,6 +94,25 @@ const UserProfileInfo = ({ user }) => {
           </div>
           <div className={styles.rightProfileBot}>
             <hr className={styles.hr} aria-hidden="true"></hr>
+            <div className={styles.rightProfileBotCompliments}>
+              <p className={styles.complimentHead}>
+                <b>Compliments</b>
+              </p>
+              <div className={styles.compliments}>
+                <p>
+                  <b>*num*</b> Item as desribed
+                </p>
+                <p>
+                  <b>*num*</b> Friendly
+                </p>
+                <p>
+                  <b>*num*</b> On time
+                </p>
+                <p>
+                  <b>*num*</b> Communicative
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
