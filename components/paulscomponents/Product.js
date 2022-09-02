@@ -47,3 +47,4 @@ function getRandomInt(min, max) {
 };
 
 export default Product;
+
