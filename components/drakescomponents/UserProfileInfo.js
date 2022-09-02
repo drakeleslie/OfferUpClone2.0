@@ -4,8 +4,6 @@ import React, { useState, useEffect } from "react";
 import phoneIcon from "./Profile.Assets/telephone.png";
 //top portion of user page, provides user information (username, join date, pic etc..)
 const UserProfileInfo = ({ user }) => {
-  console.log(user, "test");
-
   return (
     <>
       <div className={styles.profileInfoContainer}>
@@ -100,7 +98,7 @@ const UserProfileInfo = ({ user }) => {
               </p>
               <div className={styles.compliments}>
                 <p>
-                  <b>*num*</b> Item as desribed
+                  <b>*num*</b> Item as described
                 </p>
                 <p>
                   <b>*num*</b> Friendly
