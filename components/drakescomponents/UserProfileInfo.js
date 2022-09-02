@@ -1,36 +1,85 @@
 import Link from "next/link";
 import styles from "../../styles/Profile.module.css";
 import React, { useState, useEffect } from "react";
+import phoneIcon from "./Profile.Assets/telephone.png";
 //top portion of user page, provides user information (username, join date, pic etc..)
 const UserProfileInfo = ({ user }) => {
   console.log(user, "test");
 
   return (
-       <div className={styles.jss106}>
-      {/* top portion of user page, provides user information (username, join date, pic etc..) */}
-      <div className={`${styles.MuiGridContainer} ${styles.jss2}`}>
-        {/* username, joindate, location, review,  */}
-        <div
-          className={`${styles.MuiGridItem} ${styles.MuiGridGridXl4} ${styles.MuiGridMd5}`}
-        >
-          {/* use */}
-          <div>
-            <div></div>
-            <div></div>
+    <>
+      <div className={styles.profileInfoContainer}>
+        <div className={styles.leftProfileInfo}>
+          <div className={styles.leftProfileTop}>
+            <div className={styles.leftProfileTopPic}>
+              <img src={user.picture.large} className={styles.profilePic} />
+            </div>
+            <div className={styles.leftProfileTopUser}>
+              <div className={styles.profileText}>
+                <p>
+                  <b>{user.login.username}</b>
+                </p>
+                <p>Joined {user.registered.date.substring(0, 7)}</p>
+                <p>
+                  {user.location.city}, {user.location.state}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className={styles.leftProfileBot}>
+            <p>//bought sold and followers</p>
           </div>
         </div>
-        {/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */}
-        {/* user confirmation (phone verified, email verified), average response time */}
-        <div>
-          <div></div>
-          <div></div>
+        <div className={styles.rightProfileInfo}>
+          <div className={styles.rightProfileTop}>
+            <p>
+              <b>Responds within a few hours</b>
+            </p>
+            <div className={styles.rightProfileTopAwards}>
+              <ul className={styles.awardContents}>
+                <li className={styles.awardList}>
+                  <img
+                    className={styles.awardImage}
+                    src={
+                      "https://cdn-icons-png.flaticon.com/512/724/724664.png"
+                    }
+                  />
+                  <p>
+                    Confirmed <br></br> phone
+                  </p>
+                </li>
+                <li className={styles.awardList}>
+                  <img
+                    className={styles.awardImage}
+                    src={
+                      "https://cdn-icons-png.flaticon.com/512/5968/5968764.png"
+                    }
+                  />
+                  <p>
+                    Confirmed <br></br> Facebook
+                  </p>
+                </li>
+                <li className={styles.awardList}>
+                  <img
+                    className={styles.awardImage}
+                    src={
+                      "https://cdn-icons-png.flaticon.com/512/7718/7718904.png"
+                    }
+                  />
+                  <p>
+                    Confirmed <br></br> email
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className={styles.rightProfileBot}>
+            <hr className={styles.hr} aria-hidden="true"></hr>
+          </div>
         </div>
       </div>
-      <hr
-        className={`${styles.hr} ${styles.MuiDividerRoot}`}
-        aria-hidden="true"
-      ></hr>
-    </div>
+      <hr className={styles.hr} aria-hidden="true"></hr>
+    </>
   );
 };
 
