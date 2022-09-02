@@ -28,19 +28,26 @@ server.get("/api/authenticate/:username/:password", async (req, res) => {
   } else {
     res.send(true);
   }
+
+  
+})
+  
+//create new user
+server.post('/api/newUser', async (req, res) => {
+ const newUserName = req.body.newUsername; 
+ const newEmail = req.body.newEmail; 
+ const newPassword = req.body.newPassword; 
+ const newCity = req.body.newCity
+ const newState = req.body.newState; 
+    pool.query("INSERT INTO users(username, email, password, city, state) VALUES ($1, $2, $3, $4, $5)", 
+    [newUserName, newEmail, newPassword, newCity, newState ])
+    res.send(`user ${newUserName} created`)
+})
+
+
 });
 
-//create new user
-server.post("/api/newUser", async (req, res) => {
-  const newUserName = req.body.username;
-  const newEmail = req.body.email;
-  const newPassword = req.body.password;
-  pool.query(
-    "INSERT INTO users(username, email, password) VALUES ($1, $2, $3)",
-    [newUserName, newEmail, newPassword]
-  );
-  console.log("Server updated with new data");
-});
+
 
 //to get saved items by user id
 server.get("/api/saved/:user_id", async (req, res) => {
