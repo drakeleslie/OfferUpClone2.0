@@ -24,7 +24,7 @@ server.get('/api/authenticate/:username/:password', async (req, res) => {
   if(!checkForUserID){
     res.send(false)
   } else{
-    res.send(true)
+    res.send({bool: true, data: getUserNameAndPassword.rows})
   }
   
 })

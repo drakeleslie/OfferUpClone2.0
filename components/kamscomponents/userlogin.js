@@ -13,14 +13,15 @@ const Userlogin = () => {
         event.preventDefault()
         axios.get(`http://localhost:8000/api/authenticate/superuser/superuser`)
                 .then(data => {
-                  console.log(data)
-                  if (data.data === false){ // email/password is not valid
-                    console.log('In userlogin post request --- username or password is not valid')
-                  } else if (data.data === true){ // email/password is valid
-                    console.log('In userlogin post request --- username or password is valid')
-                    Router.push('/')
-                    currentUser = username
-                    console.log("current user is set to ",currentUser)
+                  console.log(data.data, 'data from db ')
+                  if (data.data.bool === false){ // email/password is not valid
+                  } else if (data.data.bool === true){ // email/password is valid
+                    setCurrentUser(username)
+                    Router.push({
+                      pathname: '/',
+                      query: { data: JSON.stringify(data), test: 'test' }
+                    })
+
                   } else { // edge case 
                     console.log("issue with user email ")
                   }
