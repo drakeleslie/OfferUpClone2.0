@@ -13,63 +13,74 @@
 }
 
 .profileInfoContainer {
-  padding: 0px 16px;
-  margin: 0px auto;
-  box-sizing: inherit;
-  display: block;
+  display: grid;
+  background-color: grey;
+  width: 1000px;
+  height: 200px;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas: "left right";
 }
-.jss3 {
-  margin: 16px 0px;
+.leftProfileInfo {
+  grid-area: left;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  grid-template-areas:
+    "leftTop"
+    "leftBot";
 }
-.MuiDivider-root {
-  border: none;
-  height: 1px;
-  margin: 0;
-  flex-shrink: 0;
-  background-color: rgba(0, 0, 0, 0.12);
+.leftProfileTop {
+  grid-area: leftTop;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: "leftPic leftUser";
+  margin-top: 8px;
+  margin-left: 8px;
 }
-.jss106 {
-  margin: 0px auto;
-  padding: 0px 24px;
+.leftProfileTopPic {
+  grid-area: leftPic;
 }
-.MuiGridContainer {
-  width: 100%;
+.profilePic {
+  border-radius: 50%;
+}
+.leftProfileTopUser {
+  grid-area: leftUser;
+  margin-left: 10px;
+}
+/* ^^left TOP side of the profileInfo module^^  */
+/* left BOTTOM side of the profileInfo module */
+.leftProfileBot {
+  grid-area: leftBot;
+}
+/* ^^ left TOP side of the profileInfo Module */
+/* right side profileInfo module */
+.rightProfileInfo {
+  grid-area: right;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  grid-template-areas:
+    "rightTop"
+    "rightBot";
+}
+.rightProfileTop {
+  grid-area: rightTop;
+}
+.awardContents {
   display: flex;
-  flex-wrap: wrap;
-  box-sizing: border-box;
+  font-size: 10px;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-left: 5px;
 }
-.jss2 {
-  width: 100%;
+.awardList {
+  margin-left: 15px;
 }
-.MuiGridItem {
-  margin: 0;
-  box-sizing: border-box;
+.awardImage {
+  max-width: 40px;
+  min-width: 40px;
+  max-height: 40px;
+  min-height: 40px;
+  margin-bottom: 5px;
 }
-@media (min-width: 720px) {
-  .MuiGridGridMd5 {
-    flex-grow: 0;
-    max-width: 41.666667%;
-    flex-basis: 41.666667%;
-  }
-}
-@media (min-width: 1440px) {
-  .MuiGridGridXl4 {
-    flex-grow: 0;
-    max-width: 33.333333%;
-    flex-basis: 33.333333%;
-  }
-}
-@media (min-width: 1024px) {
-  .MuiGridGridLg4 {
-    flex-grow: 0;
-    max-width: 33.333333%;
-    flex-basis: 33.333333%;
-  }
-}
-@media (min-width: 720px) {
-  .MuiGrid-grid-md-5 {
-    flex-grow: 0;
-    max-width: 41.666667%;
-    flex-basis: 41.666667%;
-  }
+.rightProfileBot {
+  grid-area: rightBot;
 }
