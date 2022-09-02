@@ -2,7 +2,8 @@ import Link from "next/link";
 import NavBar from "./NavBar";
 import Head from "next/head";
 
-const Header = () => {
+const Header = ({currentUser}) => {
+  console.log(currentUser, "FROM THE HEADER")
   return (
     <div className="flex flex-row">
       <Link href="/">
