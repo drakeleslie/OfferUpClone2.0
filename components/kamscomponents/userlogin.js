@@ -1,13 +1,16 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-html-link-for-pages */
 import axios from 'axios'
 import {useState} from 'react'
+import {useForm} from 'react-hook-form'
 import Router from 'next/router'
 import Link from 'next/link'
-import validateForm from '../kamscomponents/formValidation'
+
 
 
 const Userlogin = () => {
- 
+  const {register, errors, handleSubmit} = useform()
+  const onSubmit = (data) => console.log({data})
   const [username, setUsername] =useState('')
   const [password, setPassword] =useState('')
   const [currentUser, setCurrentUser] = useState('')
@@ -35,7 +38,7 @@ const Userlogin = () => {
  
   return (
  <div className='p-8  justify-center items-center h-screen flex'>
-      <form className="flex border-2 rounded-3xl p-7 shadow-xl  h-[80%] w-[40%]  ">
+      <form className="flex border-2 rounded-3xl p-7 shadow-xl  h-[80%] w-[40%] " >
       <div className="divide-y-4 divide-white  h-6 w-full text-center font-extrabold space-y-2 grid justify-items-stretch">
       <a href="/"className="justify-self-end text-slate-400 font-light -mt-6">cancel</a> Log In
           <br></br> <br></br>
@@ -51,6 +54,12 @@ const Userlogin = () => {
             </label>
           <input 
             className="bg-white border-emerald-500 border-2 shadow-inner rounded font-thin p-2 flex-1 w-full "
+            onSubmit={handleSubmit(onSubmit)}
+            name="password"
+            ref={register({
+              required: "password", 
+              pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+            })}
             id='username' 
             type='text'
             value={username}
@@ -70,7 +79,7 @@ const Userlogin = () => {
             id='password'
             minLength="6"
             required
-            type='text'
+            type='password'
             value={password}
             onChange={event => setPassword(event.target.value)} //password is set to value of input
             aria-label='password' 

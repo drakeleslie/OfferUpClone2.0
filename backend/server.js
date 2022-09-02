@@ -45,8 +45,6 @@ server.post('/api/newUser', async (req, res) => {
 })
 
 
-});
-
 
 
 //to get saved items by user id
