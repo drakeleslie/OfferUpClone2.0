@@ -4,6 +4,7 @@ import axios from "axios";
 
 const profile = () => {
   const [user, setUser] = useState([]);
+  const [products, setProducts] = useState([]);
   //pulls random user
   useEffect(() => {
     axios({
@@ -13,11 +14,15 @@ const profile = () => {
       setUser(json.data.results);
     });
   }, []);
-
-  if (!user) return <h1></h1>;
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "https://fakestoreapi.com/products",
+    }).then((json) => setProducts(json.data));
+  }, []);
   return (
     <>
-      <UserProfile user={user} />
+      <UserProfile user={user} products={products} />
     </>
   );
 };
