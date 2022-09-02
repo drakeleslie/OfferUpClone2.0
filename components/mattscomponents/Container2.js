@@ -1,6 +1,7 @@
 
 import Header from "../johnscomponents/Header"
 import SavedItems from "./SavedItems"
+import Footer from "./Footer"
 
 const Container2 = () => {
   return (
@@ -11,6 +12,7 @@ const Container2 = () => {
               <SavedItems/>
             </main>
         </div>
+        <Footer/>
     </div>
   )
 }
