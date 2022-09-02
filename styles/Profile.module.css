@@ -14,16 +14,16 @@
 
 .profileInfoContainer {
   display: grid;
-  background-color: grey;
-  width: 1000px;
-  height: 200px;
+
+  width: 100%;
+  height: 100%;
   grid-template-columns: 1fr 3fr;
   grid-template-areas: "left right";
 }
 .leftProfileInfo {
   grid-area: left;
   display: grid;
-  grid-template-rows: 3fr 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-template-areas:
     "leftTop"
     "leftBot";
@@ -50,13 +50,29 @@
 /* left BOTTOM side of the profileInfo module */
 .leftProfileBot {
   grid-area: leftBot;
+  text-align: center;
+  text-indent: 25px;
+  margin-top: 20px;
+}
+.boughtSoldFollowers {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+.bsfContaier {
+  height: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
 }
 /* ^^ left TOP side of the profileInfo Module */
 /* right side profileInfo module */
 .rightProfileInfo {
   grid-area: right;
   display: grid;
-  grid-template-rows: 3fr 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-template-areas:
     "rightTop"
     "rightBot";
@@ -83,4 +99,24 @@
 }
 .rightProfileBot {
   grid-area: rightBot;
+}
+.rightProfileBotCompliments {
+}
+.complimentHead {
+  font-size: 25px;
+}
+.compliments {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  font-size: 18px;
+  text-indent: 15px;
+}
+
+/* //////////////////////////// */
+/* ProfileItem module */
+
+.userItems {
+  font-weight: bold;
+  font-size: 30px;
 }
