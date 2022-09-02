@@ -2,6 +2,8 @@
 import Header from "../johnscomponents/Header"
 import HomeComp from "./HomeComp"
 import styles from "../../styles/Home.module.css"
+import Footer from "../mattscomponents/Footer"
+
 const Container = () => {
   return (
     <div className="flex flex-col w-full min-h-screen text-black">
@@ -12,6 +14,7 @@ const Container = () => {
               <HomeComp />
             </main>
         </div>
+        <Footer/>
     </div>
   )
 }

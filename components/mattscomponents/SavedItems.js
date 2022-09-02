@@ -25,9 +25,9 @@ function SavedItems(props) {
 
     return (
         <div>
-            <div className={"min-w-full mt-20"}><Link href="/">Home/</Link> Account/ Saved Items</div>
-            <div className={"flex flex-grow-1 flex-row ml-12 mt-20"}>
-                <div className={"block border-solid border-zinc-300 border-2 rounded-lg h-30 w-18 mt-8 mr-10"}>
+            <div className={"min-w-full mt-4 ml-4 text-sm font-light"}><Link href="/">Home/</Link> Account/ Saved Items</div>
+            <div className={"flex flex-grow-1 flex-row ml-4 mt-4"}>
+                <div className={"block border-solid border-zinc-200 border-[1px] rounded h-46 w-22 mt-1 mr-10"}>
                     <div className={"text-xl font-medium p-1 pl-3"}>Account</div>
                     <div className={"font-medium p-1 pl-3"}>Transactions</div>
                     <div className={"hover:bg-zinc-200 p-1 pl-3 font-light"}>Purchases / Sales</div>
@@ -36,11 +36,11 @@ function SavedItems(props) {
                     <div className={"bg-green-100 font-medium p-1 pl-3"}>Saved items</div>
                     <div className={"font-medium p-1 pl-3"}>Account</div>
                     <div className={"hover:bg-zinc-200 p-1 pl-3 font-light"}>Account settings</div>
-                    <hr className={"h-0.5 bg-zinc-300 p-1 pl-3"}></hr>
+                    <hr className={"h-px bg-zinc-300 pl-3 mx-4"}></hr>
                     <div className={"underline p-1 pl-3 pt-3 hover:text-zinc-400"}>View public profile</div>
                 </div>
-                <div className={"flex-grow-1 font-normal text-base p-1 font-serif ml-7"}>
-                    <h2 className="font-serif text-2xl font-black mt-8 mb-5">Saved Items</h2>
+                <div className={"flex-grow-1 font-normal text-base p-1 font-serif ml-1"}>
+                    <h2 className="font-serif text-2xl font-black mt-4 mb-5">Saved Items</h2>
                     {savedItems.map((item, i) => (
                     <div key={i} className ="flex flex-wrap box-border mt-4">
                         <div className ="hover:bg-zinc-200 flex-grow-0 display-block box-border pl-3 pr-12">
@@ -50,10 +50,10 @@ function SavedItems(props) {
                                     <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlqBEzRduwaunqttBNlrwoEM6QcxjZyJ38KlluuWck2mwpgCS9I6X-FG2YGuef3hfFwis&usqp=CAU"} className="h-16 rounded"></img>
                                     <div className="pt-4 pl-2">{item.title} plus a bit more title and more and more and more</div>
                                 </li>
-                                <div className="hover:underline text-emerald-500 font-semibold" id={item.item_id}
+                                <div className="hover:underline text-emerald-500 font-semibold ml-16" id={item.item_id}
                                         onClick={handleDelete}>Delete
                                 </div>
-                                <hr className={"h-0.5 bg-zinc-300 p-0"}></hr>
+                                <hr className={"h-0.5 bg-zinc-200"}></hr>
                             </ul>
                         </div>
                     </div>
