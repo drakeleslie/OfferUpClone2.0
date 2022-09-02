@@ -25,23 +25,23 @@
     margin: 2rem;
     border-top: 1px grey solid;
     border-bottom: 1px grey solid;
-    height: 35rem;
+    height: 30rem;
     display: flex;
     flex-direction: column;
 }
 .imagetopcontainer {
     border: 1px rgba(128, 128, 128, 0.162) solid;
-    height: 35rem;
+    height: 30rem;
     background-color: rgba(81, 81, 81, 0.117);
 }
 .imagecontainer{
     margin-right: 5rem;
     margin-left: 5rem;
-    height: 35rem;
+    height: 30rem;
 }
 .image{
     object-fit: cover;
-    height: 34.8rem;
+    height: 29.8rem;
 }
 .title{
    margin-top: 1rem;
@@ -128,4 +128,35 @@
 .btncontainer{
     margin-top: 1rem;
     display: flex;
+}
+.savecontainer{
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    color: #00a87e
+}
+
+.subpics{
+    border-bottom: 1px solid grey;
+    height: 6rem;
+    justify-content: left;
+    display: flex;
+    flex-direction: row;
+}
+.subimages{
+    padding: .5rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 15px;
+}
+.desc{
+    font-size: 2rem;
+}
+.para{
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    color: #121212cd;
+}
+.desccontainer{
+    border-bottom: 1px solid grey;
 }
