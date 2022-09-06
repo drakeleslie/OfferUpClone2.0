@@ -1,5 +1,5 @@
-import UserProfileItems from "./userProfileItems";
-import UserProfileInfo from "./userProfileInfo";
+import UserProfileItems from "./UserProfileItems";
+import UserProfileInfo from "./UserProfileInfo";
 import "../../styles/Profile.module.css";
 import Header from "../johnscomponents/Header";
 import axios from "axios";
