@@ -1,3 +1,4 @@
+
 import pool from "../../backend/database"
 export default function authenticate(req, res) {
     console.log(req.params);

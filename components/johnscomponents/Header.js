@@ -3,13 +3,12 @@ import NavBar from "./NavBar";
 import Head from "next/head";
 
 const Header = ({currentUser}) => {
-  console.log(currentUser, "FROM THE HEADER")
   return (
     <div className="flex flex-row">
       <Link href="/">
         <img className="pl-6 mt-1 h-[75px] w-[75]" src="offeruplogo.png"></img>
       </Link>
-      <NavBar />
+      <NavBar currentUser={currentUser}/>
     </div>
   );
 };

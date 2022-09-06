@@ -3,9 +3,9 @@ import Link from "next/link";
 import Userlogin from "../kamscomponents/userlogin";
 import SearchBar from "../../pages/SearchBar";
 
-const NavBar = () => {
+const NavBar = ({currentUser}) => {
   const { user } = Userlogin();
-
+  console.log(currentUser, 'from navbar')
   return (
     <nav className="flex pt-3 py-4 px-3 border-b border-gray-200">
       <link
@@ -37,7 +37,10 @@ const NavBar = () => {
       </div>
       <div className=" flex flex-col rounded hover:bg-zinc-200 p-2">
         <i className="fa fa-user-circle text-black pl-3.5"></i>
-        <Link href="/profile">
+        <Link href={{
+          pathname: "/profile",
+          query: { currentUser: currentUser}
+          }}>
           <a className="ml-2">Profile</a>
         </Link>
       </div>
