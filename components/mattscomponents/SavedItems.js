@@ -7,7 +7,11 @@ function SavedItems(props) {
     const [savedItems, setSavedItems] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/saved/${1}`).then((res) => {
+        axios.get(`/api/saved`, {
+            params: {
+                user_id: 1
+            }
+        }).then((res) => {
             setSavedItems(res.data);
         })
     }, [])
@@ -17,7 +21,12 @@ function SavedItems(props) {
         setSavedItems(newList);
         console.log("id", event.target.id)
         console.log("key")
-            axios.delete(`http://localhost:8000/api/saved/${1}/${event.target.id}`).then((res) => {
+            axios.delete(`/api/saved`, {
+                params: {
+                    user_id: 1,
+                    item_id: event.target.id
+                }
+            }).then((res) => {
                 console.log(res.body)
             })
     }
