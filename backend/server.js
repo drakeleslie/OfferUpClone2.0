@@ -19,6 +19,8 @@
 //   const username = req.params.username;
 
 
+
+
 //   const password = req.params.password 
 //   const getUserNameAndPassword = ( await pool.query("SELECT * FROM users WHERE (username = $1 AND password = $2);", [username, password]))
 //   let checkForUserID = getUserNameAndPassword.rows[0].user_id
@@ -45,8 +47,8 @@
 // });
 
 
-
 //to get saved items by user id
+
 // server.get("/api/saved/:user_id", async (req, res) => {
 //   const userId = req.params.user_id;
 //   console.log(`Recieved Saved Request: ${req.body}`);
@@ -76,6 +78,7 @@
 //       });
 //   });
 // });
+
 //get items being sold by userId
 // server.get("/api/posted/:userId", async (req, res) => {
 //   const userId = req.params.userId;
