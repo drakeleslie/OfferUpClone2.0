@@ -1,4 +1,5 @@
 import axios from "axios";
+import Link from "next/link";
 import React, { useState } from "react";
 
 function UserSignUp() {
@@ -26,9 +27,9 @@ function UserSignUp() {
       <div className="flex border-2 rounded-3xl p-7 shadow-xl  h-[90%] w-[40%] mt-9">
         <form>
           <div className="divide-y-4 divide-white  h-6 w-full text-center font-extrabold space-y-2 grid justify-items-stretch">
-            <a href="/login" className="justify-self-end text-slate-400 -mt-6">
+            <Link href="/login" className="justify-self-end text-slate-400 -mt-6">
               cancel
-            </a>{" "}
+            </Link>{" "}
             Sign Up
             <br></br> <br></br>
             <span className="text-emerald-600 text-3xl font-extrabold">

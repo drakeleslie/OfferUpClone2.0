@@ -51,13 +51,10 @@ const Userlogin = () => {
           <span className="text-emerald-600 text-3xl font-extrabold ">
             OfferDown
           </span>
-        <div >
-        <label
-              className="block text-left text-gray-700 text-sm font-bold mb-2"
-              
-            >
+        <div>
+        <label className="block text-left text-gray-700 text-sm font-bold mb-2" >
               Name
-            </label>
+        </label>
           <input 
             className="bg-white border-emerald-500 border-2 shadow-inner rounded font-thin p-2 flex-1 w-full "
             id='username' 
@@ -87,7 +84,7 @@ const Userlogin = () => {
             </div>
           <a href="#" className="text-small justify-self-start font-light underline">Forgot your password?</a>
           <div >
-            <a href='signup' className='text-small justify-self-start  text-sm text-emerald-600 font-bold '>Don't have an account? Sign up</a>
+            <Link href={'signup'} className='text-small justify-self-start  text-sm text-emerald-600 font-bold '> Have an account? Sign up</Link >
             <button 
             type='submit'
             onClick={login}
