@@ -38,6 +38,7 @@ server.post('/api/newUser', async (req, res) => {
  const newPassword = req.body.newPassword; 
  const newCity = req.body.newCity
  const newState = req.body.newState; 
+  console.log(newUserName)
     pool.query("INSERT INTO users(username, email, password, city, state) VALUES ($1, $2, $3, $4, $5)", 
     [newUserName, newEmail, newPassword, newCity, newState ])
     res.send(`user ${newUserName} created`)

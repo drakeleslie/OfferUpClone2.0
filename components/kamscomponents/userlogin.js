@@ -9,8 +9,7 @@ import Link from 'next/link'
 
 
 const Userlogin = () => {
-  const {register, errors, handleSubmit} = useform()
-  const onSubmit = (data) => console.log({data})
+  
   const [username, setUsername] =useState('')
   const [password, setPassword] =useState('')
   const [currentUser, setCurrentUser] = useState('')
@@ -55,12 +54,7 @@ const Userlogin = () => {
             </label>
           <input 
             className="bg-white border-emerald-500 border-2 shadow-inner rounded font-thin p-2 flex-1 w-full "
-            onSubmit={handleSubmit(onSubmit)}
-            name="password"
-            ref={register({
-              required: "password", 
-              pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
-            })}
+            
             id='username' 
             type='text'
             value={username}

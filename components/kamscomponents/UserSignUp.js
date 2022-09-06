@@ -1,4 +1,5 @@
 import axios from "axios";
+import Router from 'next/router'
 import React, { useState } from "react";
 
 function UserSignUp() {
@@ -19,7 +20,12 @@ function UserSignUp() {
         newState, newState
       })
       .then((response) => {
-        console.log(response);
+        console.log(response)
+        // if(response.status === 200) {
+        //   Router.push({
+        //     pathname: '/'
+        //   })
+        // };
       });
   };
   return (
