@@ -14,20 +14,26 @@ const Userlogin = () => {
   // http://localhost:8000/api/authenticate',
   const login = (event) => {
     event.preventDefault()
-    axios.get(`http://localhost:8000/api/authenticate/${username}/${password}`)
+    axios.get(`/api/authenticate`, {
+      params: {
+        username: username,
+        password: password
+      }
+    })
                 .then(data => {
 
-
+                  console.log(data.data, 'data from db ')
                   if (data.data.bool === false){ // email/password is not valid
                   } else if (data.data.bool === true){ // email/password is valid
                     setCurrentUser(username)
-                    console.log(data.data.data, 'data before localstorage')
-                    localStorage.setItem('data', JSON.stringify(data.data.data[0]))
-                    console.log(localStorage.getItem('data'), 'LOCAL STORAGE ON LOGIN page')
+                    // console.log(data.data.data, 'data before localstorage')
+                    // localStorage.setItem('data', JSON.stringify(data.data.data[0]))
+                    // console.log(localStorage.getItem('data'), 'LOCAL STORAGE ON LOGIN page')
                     Router.push({
                       pathname: '/',
-                      query: { data: JSON.stringify(data) }
+                      query: { data: JSON.stringify(data), test: 'test' }
                     })
+
 
                   } else { // edge case 
                     console.log("issue with user email ")

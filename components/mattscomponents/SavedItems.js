@@ -8,25 +8,30 @@ function SavedItems(props) {
     const [data, setData] = useState({})
 
     useEffect(() => {
-            setData(JSON.parse(localStorage.getItem('data')))
+        let dataObj = JSON.parse(localStorage.getItem('data'))
+        setData(dataObj)
+        axios.get(`/api/saved`, {
+            params: {
+                user_id: dataObj.user_id
+            }
+        }).then((res) => {
+            setSavedItems(res.data);
+        })
     }, [])
 
-    console.log(data)
     let userId = parseInt(data.user_id)
-    console.log(typeof userId);
-
-    useEffect(() => {
-        axios.get(`http://localhost:8000/api/saved/${userId}`).then((res) => {
-            setSavedItems(res.data);  
-        })
-    }, []);    
 
     const handleDelete = (event) => {
         const newList = savedItems.filter((item) => item.item_id != event.target.id);
         setSavedItems(newList);
         console.log("id", event.target.id)
         console.log("key")
-            axios.delete(`http://localhost:8000/api/saved/${userId}/${event.target.id}`).then((res) => {
+            axios.delete(`/api/saved`, {
+                params: {
+                    user_id: userId,
+                    item_id: event.target.id
+                }
+            }).then((res) => {
                 console.log(res.body)
             })
     }
