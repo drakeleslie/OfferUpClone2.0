@@ -1,4 +1,4 @@
-import UserProfile from "../components/drakescomponents/userProfile";
+import UserProfile from "../components/drakescomponents/UserProfile";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
