@@ -25,7 +25,7 @@ const SearchBar = () => {
           type="search"
           aria-autocomplete="list"
           aria-label="Search for anything"
-          className="border-solid border-[1px] h-[40px] border-[#00a87e] rounded-l-full text-[#00a87e] placeholder:text-[#00a87e] pl-2"
+          className="border-solid border-[1px] h-[40px] w-[475px] border-[#00a87e] rounded-l-full text-[#00a87e] placeholder:text-[#00a87e] pl-2"
         ></input>
         <button
           className="bg-[#00a87e] rounded-r-full w-10 flex justify-center pt-2.5"
