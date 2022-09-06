@@ -22,7 +22,6 @@ function SavedItems(props) {
             })
     }
 
-
     return (
         <div>
             <div className={"min-w-full mt-4 ml-4 text-sm font-light"}><Link href="/">Home/</Link> Account/ Saved Items</div>
@@ -49,7 +48,7 @@ function SavedItems(props) {
                                     {/* <img src={item.image}></img> */}
                                     <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlqBEzRduwaunqttBNlrwoEM6QcxjZyJ38KlluuWck2mwpgCS9I6X-FG2YGuef3hfFwis&usqp=CAU"} className="h-16 rounded"></img>
                                     <div className='flex flex-col'>
-                                        <div className="pl-4 text-lg truncate max-w-lg">{item.title} plus a bit more title and more and more and more</div>
+                                        <div className="hover:underline pl-4 text-lg truncate max-w-lg">{item.title} plus a bit more title and more and more and more</div>
                                         <div className="hover:underline text-emerald-500 font-semibold pl-4 text-sm pt-1" id={item.item_id}
                                             onClick={handleDelete}>Delete
                                         </div>
