@@ -5,7 +5,7 @@ import { useState } from "react";
 
 //home page
 export default function Home() {
-  console.log(JSON.parse(localStorage.getItem('data')))
+
   const router = useRouter();
   const data = router.query;
   if (data.data) {

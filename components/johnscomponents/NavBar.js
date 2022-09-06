@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Userlogin from "../kamscomponents/userlogin";
 import SearchBar from "../../pages/SearchBar";
+import Image from "next/image";
 
 const NavBar = ({currentUser}) => {
   const { user } = Userlogin();
@@ -14,6 +15,7 @@ const NavBar = ({currentUser}) => {
       ></link>
       <SearchBar />
       <img
+        alt="somepicture"
         className="h-5 mt-3.5 ml-6"
         src={
           "https://freepikpsd.com/file/2019/10/location-icon-png-green-1-Transparent-Images.png"
