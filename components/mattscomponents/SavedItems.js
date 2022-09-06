@@ -5,19 +5,28 @@ import Link from "next/link";
 
 function SavedItems(props) {
     const [savedItems, setSavedItems] = useState([]);
+    const [data, setData] = useState({})
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/saved/${1}`).then((res) => {
-            setSavedItems(res.data);
-        })
+            setData(JSON.parse(localStorage.getItem('data')))
     }, [])
+
+    console.log(data)
+    let userId = parseInt(data.user_id)
+    console.log(typeof userId);
+
+    useEffect(() => {
+        axios.get(`http://localhost:8000/api/saved/${userId}`).then((res) => {
+            setSavedItems(res.data);  
+        })
+    }, []);    
 
     const handleDelete = (event) => {
         const newList = savedItems.filter((item) => item.item_id != event.target.id);
         setSavedItems(newList);
         console.log("id", event.target.id)
         console.log("key")
-            axios.delete(`http://localhost:8000/api/saved/${1}/${event.target.id}`).then((res) => {
+            axios.delete(`http://localhost:8000/api/saved/${userId}/${event.target.id}`).then((res) => {
                 console.log(res.body)
             })
     }
@@ -39,7 +48,7 @@ function SavedItems(props) {
                     <div className={"underline p-1 pl-3 pt-3 hover:text-zinc-400 pb-4 text-sm font-light"}>View public profile</div>
                 </div>
                 <div className={"flex-grow-1 font-normal text-base p-1 font-serif ml-1"}>
-                    <h2 className="font-serif text-2xl font-black mt-4 mb-5">Saved Items</h2>
+                    <h2 className="font-serif text-2xl font-black mt-4 mb-5">{savedItems[0] ? "Saved Items" : "No Saved Items"}</h2>
                     {savedItems.map((item, i) => (
                     <div key={i} className ="flex flex-wrap box-border mt-4 max-w-xl">
                         <div className ="hover:bg-zinc-200 flex-grow-0 display-block box-border pl-3 pr-12">
@@ -60,7 +69,7 @@ function SavedItems(props) {
                     </div>
                     ))}
                 </div>
-            </div>
+            </div> 
         </div>
     );
 }

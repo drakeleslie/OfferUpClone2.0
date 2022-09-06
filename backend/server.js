@@ -47,14 +47,15 @@ server.post('/api/newUser', async (req, res) => {
 
 
 //to get saved items by user id
-server.get("/api/saved/:user_id", async (req, res) => {
+server.get("/api/saved/:user_id", (req, res) => {
+  console.log(req, "req")
   const userId = req.params.user_id;
   console.log(`Recieved Saved Request: ${req.body}`);
-  await pool
-    .query("SELECT * FROM saved_items WHERE (user_id = $1);", [userId])
+  pool.query("SELECT * FROM saved_items WHERE (user_id = $1);", [userId])
     .then((data) => {
       res.send(data.rows);
     });
+});
 
   //to delete from saved items
   server.delete("/api/saved/:user_id/:item_id", (req, res, next) => {
@@ -75,7 +76,7 @@ server.get("/api/saved/:user_id", async (req, res) => {
         }
       });
   });
-});
+
 //get items being sold by userId
 server.get("/api/posted/:userId", async (req, res) => {
   const userId = req.params.userId;
