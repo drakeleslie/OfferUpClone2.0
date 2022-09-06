@@ -7,30 +7,30 @@ const NavBar = () => {
   const { user } = Userlogin();
 
   return (
-    <nav className="flex pt-4 py-4 px-6 border-b border-gray-200">
+    <nav className="flex pt-3 py-4 px-3 border-b border-gray-200">
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
       ></link>
       <SearchBar />
       <img
-        className="h-5 mt-3 ml-6"
+        className="h-5 mt-3.5 ml-6"
         src={
           "https://freepikpsd.com/file/2019/10/location-icon-png-green-1-Transparent-Images.png"
         }
       ></img>
-      <a className="text-[#00a87e] pl-1 pt-2.5 text-lg font-semibold">
+      <a className="text-[#00a87e] pl-1 pt-3 text-lg font-semibold">
         {" "}
         Location
       </a>
-      <div className="ml-[600px] flex flex-col rounded hover:bg-zinc-200 p-2">
+      <div className="ml-[400px] flex flex-col rounded hover:bg-zinc-200 p-2">
         <i className="fa fa-heart-o text-black pl-3.5"></i>
         <Link href="/saved">
           <a>Saved</a>
         </Link>
       </div>
       <div className="flex flex-col rounded hover:bg-zinc-200 p-2">
-        <i className="pl-7 fa fa-dollar text-black pl-3.5"></i>
+        <i className="pl-7 fa fa-dollar text-black"></i>
         <Link href="/selling">
           <a className="ml-2">Selling</a>
         </Link>
