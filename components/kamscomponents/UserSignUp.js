@@ -10,14 +10,13 @@ function UserSignUp() {
 
   const createNewUser = (event) => {
     event.preventDefault();
-    axios
-      .post("http://localhost:8000/api/newUser", {
-        newUsername: newUsername,
-        newEmail: newEmail,
-        newPassword: newPassword,
-        newCity: newCity, 
-        newState, newState
-      })
+    axios.post('/api/newUser', { 
+          newUsername: newUsername,
+          newEmail: newEmail,
+          newPassword: newPassword,
+          newCity: newCity, 
+          newState, newState
+    })
       .then((response) => {
         console.log(response);
       });
