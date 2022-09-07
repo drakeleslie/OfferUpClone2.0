@@ -1,13 +1,10 @@
 import Container from "../components/paulscomponents/Container";
 import HomeComp from "../components/paulscomponents/HomeComp";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 //home page
 export default function Home() {
-  // if (localStorage) {
-  //   console.log(JSON.parse(localStorage.getItem("data")));
-  // }
   const router = useRouter();
   const data = router.query;
   if (data.data) {

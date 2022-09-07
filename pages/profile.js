@@ -1,15 +1,9 @@
-import UserProfile from "../components/drakescomponents/userProfile";
+import UserProfile from "../components/drakescomponents/UserProfile";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useRouter } from "next/router";
 
-const profile = () => {
-  const router = useRouter();
-  const data = router.query;
-  if (data.data) {
-    const json = JSON.parse(data.data)
-    console.log(json.data.data[0], 'AT PROFILE PAGE')
-  }
+
+const Profile = () => {
   const [user, setUser] = useState([]);
   const [products, setProducts] = useState([]);
   //pulls random user
@@ -34,4 +28,4 @@ const profile = () => {
   );
 };
 
-export default profile;
+export default Profile;

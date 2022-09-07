@@ -74,39 +74,25 @@ const Userlogin = () => {
             <label className="block text-left text-gray-700 text-sm  mb-2">
               Password
             </label>
-            <input
-              className="bg-white border-emerald-500 border-2 shadow-inner rounded  p-2 flex-1 w-full "
-              id="floating-password"
-              name="floating-password"
-              minLength="6"
-              required
-              type="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)} //password is set to value of input
-              aria-label="password"
-              placeholder=""
-            />
-            
-          </div>
-          <a
-            href="#"
-            className="text-small justify-self-start font-light underline"
-          >
-            Forgot your password?
-          </a>
-          <div>
-            <a
-              href="signup"
-              className="text-small justify-self-start  text-sm text-emerald-600 font-bold "
-            >
-              Don't have an account? Sign up
-            </a>
-            <button
-              type="submit"
-              onClick={login}
-              className="bg-slate-100 text-slate-400 hover:bg-emerald-600 hover:text-white duration-300  shadow p-2 mt-2 mr-6 rounded-full  ml-2 w-[95%]"
-            >
-              Log in
+          <input 
+            className="bg-white border-emerald-500 border-2 shadow-inner rounded  p-2 flex-1 w-full "
+            id='password'
+            minLength="6"
+            required
+            type='text'
+            value={password}
+            onChange={event => setPassword(event.target.value)} //password is set to value of input
+            aria-label='password' 
+            placeholder='' />
+            </div>
+          <a href="#" className="text-small justify-self-start font-light underline">Forgot your password?</a>
+          <div >
+            <Link href={'signup'} className='text-small justify-self-start  text-sm text-emerald-600 font-bold '> Have an account? Sign up</Link >
+            <button 
+            type='submit'
+            onClick={login}
+            className="bg-slate-100 text-slate-400 hover:bg-emerald-600 hover:text-white duration-300  shadow p-2 mt-2 mr-6 rounded-full  ml-2 w-[95%]">
+            Log in  
             </button>
           </div>
           <div className="text-xs ">
