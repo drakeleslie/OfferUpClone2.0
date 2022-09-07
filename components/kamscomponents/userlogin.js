@@ -1,15 +1,19 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable @next/next/no-html-link-for-pages */
+
 import axios from "axios";
 import { useState } from "react";
 import Router from "next/router";
 import Link from "next/link";
 
+
+
 const Userlogin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [currentUser, setCurrentUser] = useState("");
+
+
   const login = (event) => {
+
     event.preventDefault();
     axios
       .get(`/api/authenticate`, {
@@ -19,6 +23,7 @@ const Userlogin = () => {
         },
       })
       .then((data) => {
+
         if (data.data.bool === true) {
           // email/password is valid
           setCurrentUser(username);
@@ -38,19 +43,19 @@ const Userlogin = () => {
           console.log("issue with user email or password ");
         }
       })
-      .catch((err) => console.log(err));
-  };
-
+    }
+      
+        
   return (
     <div className="p-8  justify-center items-center h-screen flex">
       <form className="flex border-2 rounded-3xl p-7 shadow-xl  h-[80%] w-[40%]  ">
         <div className="divide-y-4 divide-white  h-6 w-full text-center font-extrabold space-y-2 grid justify-items-stretch">
-          <a
+          <Link
             href="/"
             className="justify-self-end text-slate-400 font-light -mt-6"
           >
             cancel
-          </a>{" "}
+          </Link>{" "}
           Log In
           <br></br> <br></br>
           <span className="text-emerald-600 text-3xl font-extrabold ">
@@ -71,28 +76,43 @@ const Userlogin = () => {
             />
           </div>
           <div>
+
             <label className="block text-left text-gray-700 text-sm  mb-2">
+
               Password
             </label>
-          <input 
-            className="bg-white border-emerald-500 border-2 shadow-inner rounded  p-2 flex-1 w-full "
-            id='password'
-            minLength="6"
-            required
-            type='text'
-            value={password}
-            onChange={event => setPassword(event.target.value)} //password is set to value of input
-            aria-label='password' 
-            placeholder='' />
-            </div>
-          <a href="#" className="text-small justify-self-start font-light underline">Forgot your password?</a>
-          <div >
-            <Link href={'signup'} className='text-small justify-self-start  text-sm text-emerald-600 font-bold '> Have an account? Sign up</Link >
-            <button 
-            type='submit'
-            onClick={login}
-            className="bg-slate-100 text-slate-400 hover:bg-emerald-600 hover:text-white duration-300  shadow p-2 mt-2 mr-6 rounded-full  ml-2 w-[95%]">
-            Log in  
+            <input
+              className="bg-white border-emerald-500 border-2 shadow-inner rounded  p-2 flex-1 w-full "
+              id="password"
+              minLength="6"
+              required
+              type="text"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)} //password is set to value of input
+              aria-label="password"
+              placeholder=""
+            />
+          </div>
+          <a
+            href="#"
+            className="text-small justify-self-start font-light underline"
+          >
+            Forgot your password?
+          </a>
+          <div>
+            <Link
+              href={"signup"}
+              className="text-small justify-self-start  text-sm text-emerald-600 font-bold "
+            >
+              {" "}
+              Have an account? Sign up
+            </Link>
+            <button
+              type="submit"
+              onClick={login}
+              className="bg-slate-100 text-slate-400 hover:bg-emerald-600 hover:text-white duration-300  shadow p-2 mt-2 mr-6 rounded-full  ml-2 w-[95%]"
+            >
+              Log in
             </button>
           </div>
           <div className="text-xs ">
@@ -108,4 +128,4 @@ const Userlogin = () => {
   );
 };
 
-export default Userlogin;
+export default Userlogin
