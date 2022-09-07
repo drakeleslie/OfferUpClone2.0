@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import styles from "../../styles/Home.module.css";
+import Image from "next/image";
 
 const Product = () => {
   const [products, setProducts] = useState([]);

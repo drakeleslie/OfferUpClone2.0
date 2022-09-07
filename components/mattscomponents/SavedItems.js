@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import QuickSave from "./QuickSave";
 import Link from "next/link";
+import Image from "next/image";
 
 function SavedItems(props) {
     const [savedItems, setSavedItems] = useState([]);
@@ -59,11 +60,10 @@ function SavedItems(props) {
                         <div className ="hover:bg-zinc-200 flex-grow-0 display-block box-border pl-3 pr-12">
                             <ul>
                                 <li className="h-16 flex flex-row">
-                                    {/* <img src={item.image}></img> */}
-                                    <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlqBEzRduwaunqttBNlrwoEM6QcxjZyJ38KlluuWck2mwpgCS9I6X-FG2YGuef3hfFwis&usqp=CAU"} className="h-16 rounded"></img>
+                                    <img src={item.image} className="h-16 rounded"></img>
                                     <div className='flex flex-col'>
                                         <div className="hover:underline pl-4 text-lg truncate max-w-lg">{item.title} plus a bit more title and more and more and more</div>
-                                        <div className="hover:underline text-emerald-500 font-semibold pl-4 text-sm pt-1" id={item.item_id}
+                                        <div className="hover:underline text-emerald-500 font-semibold ml-4 text-sm pt-1" id={item.item_id}
                                             onClick={handleDelete}>Delete
                                         </div>
                                     </div>
