@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Userlogin from "../kamscomponents/userlogin";
 import SearchBar from "../../pages/SearchBar";
 import { useState, useEffect } from "react";
 
@@ -71,7 +70,7 @@ const NavBar = ({ currentUser }) => {
 
           {/* <i className="fa fa-user-o text-black pl-3.5 "></i> */}
           <Link href={data ? "/userlogout" : "/login"}>
-            <a className="ml-auto">{data ? "Logout" : "Login"}</a>
+            <a className="pr-3 ml-auto">{data ? "Logout" : "Login"}</a>
           </Link>
         </div>
       </div>
