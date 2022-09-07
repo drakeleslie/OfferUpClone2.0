@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "../../styles/Home.module.css";
 import styles1 from "../../styles/Profile.module.css";
-import UserProfileItemBox from "./userProfileItemBox";
+import UserProfileItemBox from './UserProfileItemBox';
 const UserProfileItems = ({ user, products }) => {
   console.log(products);
   return (
