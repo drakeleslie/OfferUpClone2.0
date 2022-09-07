@@ -21,6 +21,7 @@ const NavBar = ({ currentUser }) => {
       ></link>
       <SearchBar />
       <img
+        alt="somepicture"
         className="h-5 mt-3.5 ml-6"
         src={
           "https://freepikpsd.com/file/2019/10/location-icon-png-green-1-Transparent-Images.png"

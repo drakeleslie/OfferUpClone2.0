@@ -26,8 +26,8 @@ const Userlogin = () => {
         } else if (data.data.bool === true) {
           // email/password is valid
           setCurrentUser(username);
-          console.log(data.data.data, "data before localstorage");
-          localStorage.setItem("data", JSON.stringify(data.data.data[0]));
+          // console.log(data.data.data, 'data before localstorage')
+          // localStorage.setItem('data', JSON.stringify(data.data.data[0]))
           // console.log(localStorage.getItem('data'), 'LOCAL STORAGE ON LOGIN page')
           Router.push({
             pathname: "/",
@@ -93,12 +93,13 @@ const Userlogin = () => {
             Forgot your password?
           </a>
           <div>
-            <a
-              href="signup"
+            <Link
+              href={"signup"}
               className="text-small justify-self-start  text-sm text-emerald-600 font-bold "
             >
-              Dont have an account? Sign up
-            </a>
+              {" "}
+              Have an account? Sign up
+            </Link>
             <button
               type="submit"
               onClick={login}
