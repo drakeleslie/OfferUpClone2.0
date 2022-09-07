@@ -2,10 +2,17 @@ import React from "react";
 import Link from "next/link";
 import Userlogin from "../kamscomponents/userlogin";
 import SearchBar from "../../pages/SearchBar";
+import { useState, useEffect } from "react";
 
-const NavBar = ({currentUser}) => {
-  const { user } = Userlogin();
-  console.log(currentUser, 'from navbar')
+const NavBar = ({ currentUser }) => {
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    setData(JSON.parse(localStorage.getItem("data")));
+  }, []);
+  console.log(data);
+
+  console.log(currentUser, "from navbar");
   return (
     <nav className="flex pt-3 py-4 px-3 border-b border-gray-200">
       <link
@@ -37,18 +44,35 @@ const NavBar = ({currentUser}) => {
       </div>
       <div className=" flex flex-col rounded hover:bg-zinc-200 p-2">
         <i className="fa fa-user-circle text-black pl-3.5"></i>
-        <Link href={{
-          pathname: "/profile",
-          query: { currentUser: currentUser}
-          }}>
+        <Link
+          href={{
+            pathname: "/profile",
+            query: { currentUser: currentUser },
+          }}
+        >
           <a className="ml-2">Profile</a>
         </Link>
       </div>
-      <div className=" flex flex-col rounded hover:bg-zinc-200 p-2">
-        <i className="fa fa-user-o text-black pl-3.5"></i>
-        <Link href={user ? "/signup" : "/login"}>
-          <a className="ml-auto">{user ? "Logout" : "Login"}</a>
-        </Link>
+      <div className="hover:bg-grey-100">
+        <div className="flex flex-col h-14 w-15 rounded p-2 overflow-hidden relative bg-gray-100 light:bg-blue-600 ">
+          <svg
+            className="position-self-center w-13 h-16 text-gray-400 hover:bg-blue-200 rounded-full"
+            fill="currentColor"
+            viewBox="7 3 18 18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              d="M13 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+              // clipRule="evenodd"
+            ></path>
+          </svg>
+
+          {/* <i className="fa fa-user-o text-black pl-3.5 "></i> */}
+          <Link href={data ? "/userlogout" : "/login"}>
+            <a className="ml-auto">{data ? "Logout" : "Login"}</a>
+          </Link>
+        </div>
       </div>
     </nav>
   );
