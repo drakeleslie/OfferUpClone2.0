@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+
 import SearchBar from "../../pages/SearchBar";
 import { useState, useEffect } from "react";
 

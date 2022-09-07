@@ -1,9 +1,11 @@
-import Header from "../johnscomponents/Header";
-import HomeComp from "./HomeComp";
-import styles from "../../styles/Home.module.css";
-import Footer from "../mattscomponents/Footer";
 
-const Container = ({ currentUser }) => {
+import Header from "../johnscomponents/Header"
+import HomeComp from "./HomeComp"
+import styles from "../../styles/Home.module.css"
+import Footer from "../mattscomponents/Footer"
+
+const Container = ({currentUser}) => {
+
   return (
     <div className="flex flex-col min-h-screen text-black w-full w-screen">
       <Header currentUser={currentUser} />
