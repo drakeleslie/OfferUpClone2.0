@@ -51,7 +51,7 @@ function SavedItems(props) {
                     <div className={"font-medium p-1 pl-3 pb-2"}>Account</div>
                     <div className={"hover:bg-zinc-200 p-1 pl-3 font-light pb-3"}>Account settings</div>
                     <hr className={"h-px bg-zinc-300 pl-3 mx-4"}></hr>
-                    <div className={"underline p-1 pl-3 pt-3 hover:text-zinc-400 pb-4 text-sm font-light"}>View public profile</div>
+                    <Link href="/profile" ><div className={"underline p-1 pl-3 pt-3 hover:text-zinc-400 pb-4 text-sm font-light"}>View public profile</div></Link>
                 </div>
                 <div className={"flex-grow-1 font-normal text-base p-1 font-serif ml-1"}>
                     <h2 className="font-serif text-2xl font-black mt-4 mb-5">{savedItems[0] ? "Saved Items" : "No Saved Items"}</h2>
@@ -62,8 +62,8 @@ function SavedItems(props) {
                                 <li className="h-16 flex flex-row">
                                     <img src={item.image} className="h-16 rounded"></img>
                                     <div className='flex flex-col'>
-                                        <div className="hover:underline pl-4 text-lg truncate max-w-lg">{item.title} plus a bit more title and more and more and more</div>
-                                        <div className="hover:underline text-emerald-500 font-semibold ml-4 text-sm pt-1" id={item.item_id}
+                                        <div className="hover:underline pl-4 text-lg truncate max-w-lg">{item.title}</div>
+                                        <div className="hover:underline text-emerald-500 font-semibold ml-4 text-sm pt-1 w-12" id={item.item_id}
                                             onClick={handleDelete}>Delete
                                         </div>
                                     </div>
