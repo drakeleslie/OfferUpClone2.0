@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
-
-import SearchBar from "../../pages/SearchBar";
+import SearchBar from "./SearchBar.js";
 import { useState, useEffect } from "react";
 
 const NavBar = ({ currentUser }) => {
@@ -47,10 +46,10 @@ const NavBar = ({ currentUser }) => {
           <a className="ml-2">{data ? "Profile" : "Signup"}</a>
         </Link>
       </div>
-      <div className="hover:bg-grey-100">
-        <div className="flex flex-col h-14 w-15 rounded p-2 overflow-hidden relative bg-gray-100 light:bg-blue-600 ">
+      <div className="rounded hover:bg-grey-100">
+        <div className="flex flex-col h-14 w-15 rounded p-2 relative hover:bg-gray-200 light:bg-blue-600 ">
           <svg
-            className="position-self-center w-13 h-16 text-gray-400 hover:bg-blue-200 rounded-full"
+            className="position-self-center w-13 h-16 hover:bg-blue-200 rounded-full"
             fill="currentColor"
             viewBox="7 3 18 18"
             xmlns="http://www.w3.org/2000/svg"
