@@ -1,6 +1,10 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import axios from "axios";
 import Link from "next/link";
 import React, { useState } from "react";
+import Router from 'next/router'
+
+
 
 function UserSignUp() {
   const [newUsername, setNewUsername] = useState("");
@@ -8,6 +12,7 @@ function UserSignUp() {
   const [newPassword, setNewPassword] = useState("");
   const [newCity, setNewCity] = useState("");
   const [newState, setNewState] = useState("");
+  const [currentUser, setCurrentUser] = useState('')
 
   const createNewUser = (event) => {
     event.preventDefault();
@@ -19,7 +24,13 @@ function UserSignUp() {
           newState, newState
     })
       .then((response) => {
-        console.log(response);
+ 
+        if(response.status === 200) {
+          setCurrentUser(newUsername)
+          Router.push({
+            pathname: '/'
+          })
+        };
       });
   };
   return (
