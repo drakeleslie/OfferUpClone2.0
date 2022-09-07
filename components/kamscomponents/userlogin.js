@@ -11,7 +11,6 @@ const Userlogin = () => {
   const [currentUser, setCurrentUser] = useState("");
   // http://localhost:8000/api/authenticate',
   const login = (event) => {
-<<<<<<< HEAD
     event.preventDefault();
     axios
       .get(`/api/authenticate`, {
@@ -41,29 +40,6 @@ const Userlogin = () => {
       })
       .catch((err) => console.log(err));
   };
-=======
-    event.preventDefault()
-    axios.get(`/api/authenticate`, {
-      params: {
-        username: username,
-        password: password
-      }
-    })
-                .then(data => {
-
-                  console.log(data.data, 'data from db ')
-                  if (data.data.bool === false){ // email/password is not valid
-                  } else if (data.data.bool === true){ // email/password is valid
-                    setCurrentUser(username)
-                    console.log(data.data.data, 'data before localstorage')
-                    localStorage.setItem('data', JSON.stringify(data.data.data[0]))
-                    // console.log(localStorage.getItem('data'), 'LOCAL STORAGE ON LOGIN page')
-                    Router.push({
-                      pathname: '/',
-                      query: { data: JSON.stringify(data), test: 'test' }
-                    })
-
->>>>>>> e26ed94fb5da9477224ad1da28ab39ae1f5177a0
 
   return (
     <div className="p-8  justify-center items-center h-screen flex">
