@@ -1,8 +1,5 @@
 import Container from "../components/paulscomponents/Container";
-import HomeComp from "../components/paulscomponents/HomeComp";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
-
 //home page
 export default function Home() {
   const router = useRouter();

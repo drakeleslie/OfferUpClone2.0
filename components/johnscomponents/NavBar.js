@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+
 import SearchBar from "../../pages/SearchBar";
 import { useState, useEffect } from "react";
 
@@ -12,6 +13,7 @@ const NavBar = ({ currentUser }) => {
   console.log(data);
 
   console.log(currentUser, "from navbar");
+
   return (
     <nav className="flex pt-3 py-4 px-3 border-b border-gray-200">
       <link
