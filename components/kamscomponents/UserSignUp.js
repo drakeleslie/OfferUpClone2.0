@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import axios from "axios";
 import Router from 'next/router'
 import React, { useState } from "react";
@@ -8,24 +9,25 @@ function UserSignUp() {
   const [newPassword, setNewPassword] = useState("");
   const [newCity, setNewCity] = useState("");
   const [newState, setNewState] = useState("");
+  const [currentUser, setCurrentUser] = useState('')
 
   const createNewUser = (event) => {
     event.preventDefault();
-    axios
-      .post("http://localhost:8000/api/newUser", {
-        newUsername: newUsername,
-        newEmail: newEmail,
-        newPassword: newPassword,
-        newCity: newCity, 
-        newState, newState
-      })
+    axios.post('/api/newUser', { 
+          newUsername: newUsername,
+          newEmail: newEmail,
+          newPassword: newPassword,
+          newCity: newCity, 
+          newState, newState
+    })
       .then((response) => {
-        console.log(response)
-        // if(response.status === 200) {
-        //   Router.push({
-        //     pathname: '/'
-        //   })
-        // };
+ 
+        if(response.status === 200) {
+          setCurrentUser(newUsername)
+          Router.push({
+            pathname: '/'
+          })
+        };
       });
   };
   return (

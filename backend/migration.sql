@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users(
     user_id SERIAL,
-    username TEXT UNIQUE,
+    username TEXT ,
     email TEXT,
     password TEXT,
     city TEXT,
