@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import SearchBar from "../../pages/SearchBar";
+import SearchBar from "./SearchBar";
 import { useState, useEffect } from "react";
 
 const NavBar = ({ currentUser }) => {
