@@ -26,8 +26,8 @@ const Userlogin = () => {
                   if (data.data.bool === false){ // email/password is not valid
                   } else if (data.data.bool === true){ // email/password is valid
                     setCurrentUser(username)
-                    // console.log(data.data.data, 'data before localstorage')
-                    // localStorage.setItem('data', JSON.stringify(data.data.data[0]))
+                    console.log(data.data.data, 'data before localstorage')
+                    localStorage.setItem('data', JSON.stringify(data.data.data[0]))
                     // console.log(localStorage.getItem('data'), 'LOCAL STORAGE ON LOGIN page')
                     Router.push({
                       pathname: '/',
