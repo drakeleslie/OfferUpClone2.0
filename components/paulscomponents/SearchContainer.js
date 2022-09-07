@@ -1,16 +1,16 @@
 import Header from "../johnscomponents/Header"
-import HomeComp from "./HomeComp"
+import SearchComp from "./SearchComp"
 import styles from "../../styles/Home.module.css"
 import Footer from "../mattscomponents/Footer"
 
-const Container = ({currentUser}) => {
+const SearchContainer = ({data}) => {
   return (
     <div className="flex flex-col w-full min-h-screen text-black">
-        <Header currentUser={currentUser}/> 
+        <Header /> 
         <div className="flex grow flex-col">
           <div className={styles.spacer}></div>
             <main className="w-full max-w-screen-2xl my-0 mr-auto ml-auto">
-              <HomeComp />
+              <SearchComp data={data}/>
             </main>
         </div>
         <Footer/>
@@ -18,4 +18,4 @@ const Container = ({currentUser}) => {
   )
 }
 
-export default Container
+export default SearchContainer

@@ -1,12 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import Userlogin from "../kamscomponents/userlogin";
-import SearchBar from "../../pages/SearchBar";
+import SearchBar from '../johnscomponents/SearchBar'
 import Image from "next/image";
 
 const NavBar = ({currentUser}) => {
   const { user } = Userlogin();
-  console.log(currentUser, 'from navbar')
   return (
     <nav className="flex pt-3 py-4 px-3 border-b border-gray-200">
       <link
