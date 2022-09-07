@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Router from "next/router";
 import Link from "next/link";
-import validateForm from "../components/kamscomponents/formValidation";
+
 
 const Userlogout = () => {
   useEffect(() => {
