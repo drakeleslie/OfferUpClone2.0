@@ -1,16 +1,19 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
+
 import axios from "axios";
 import { useState } from "react";
 import Router from "next/router";
 import Link from "next/link";
-import validateForm from "../kamscomponents/formValidation";
+
+
 
 const Userlogin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [currentUser, setCurrentUser] = useState("");
-  // http://localhost:8000/api/authenticate',
+
+
   const login = (event) => {
+
     event.preventDefault();
     axios
       .get(`/api/authenticate`, {
@@ -20,37 +23,44 @@ const Userlogin = () => {
         },
       })
       .then((data) => {
-        console.log(data.data, "data from db ");
-        if (data.data.bool === false) {
-          // email/password is not valid
-        } else if (data.data.bool === true) {
+
+        if (data.data.bool === true) {
           // email/password is valid
           setCurrentUser(username);
-          // console.log(data.data.data, 'data before localstorage')
-          // localStorage.setItem('data', JSON.stringify(data.data.data[0]))
-          // console.log(localStorage.getItem('data'), 'LOCAL STORAGE ON LOGIN page')
+          console.log(data.data.data, "data before localstorage");
+          localStorage.setItem("data", JSON.stringify(data.data.data[0]));
+          console.log(
+            localStorage.getItem("data"),
+            "LOCAL STORAGE ON LOGIN page"
+          );
           Router.push({
             pathname: "/",
-            query: { data: JSON.stringify(data), test: "test" },
+            query: { data: JSON.stringify(data) },
           });
         } else {
-          // edge case
-          console.log("issue with user email ");
+          //email password is not valid
+          alert("Invalid Username or password")
+          console.log("issue with user email or password ");
         }
       })
-      .catch((err) => console.log(err));
+
+      
   };
+
+
+      
+        
 
   return (
     <div className="p-8  justify-center items-center h-screen flex">
       <form className="flex border-2 rounded-3xl p-7 shadow-xl  h-[80%] w-[40%]  ">
         <div className="divide-y-4 divide-white  h-6 w-full text-center font-extrabold space-y-2 grid justify-items-stretch">
-          <a
-            href="/"
+          <Link
+            href={"login"}
             className="justify-self-end text-slate-400 font-light -mt-6"
           >
             cancel
-          </a>{" "}
+          </Link>{" "}
           Log In
           <br></br> <br></br>
           <span className="text-emerald-600 text-3xl font-extrabold ">
@@ -71,7 +81,9 @@ const Userlogin = () => {
             />
           </div>
           <div>
-            <label className="block text-left text-gray-700 text-sm font-bold mb-2">
+
+            <label className="block text-left text-gray-700 text-sm  mb-2">
+
               Password
             </label>
             <input
@@ -79,25 +91,24 @@ const Userlogin = () => {
               id="password"
               minLength="6"
               required
-              type="text"
+              type="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)} //password is set to value of input
               aria-label="password"
               placeholder=""
             />
           </div>
-          <a
+          <Link 
             href="#"
             className="text-small justify-self-start font-light underline"
           >
             Forgot your password?
-          </a>
+          </Link>
           <div>
             <Link
               href={"signup"}
               className="text-small justify-self-start  text-sm text-emerald-600 font-bold "
             >
-              {" "}
               Have an account? Sign up
             </Link>
             <button
@@ -121,4 +132,4 @@ const Userlogin = () => {
   );
 };
 
-export default Userlogin;
+export default Userlogin
