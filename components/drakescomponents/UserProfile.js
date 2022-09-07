@@ -6,15 +6,27 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Footer from "../mattscomponents/Footer";
 
-const UserProfile = ({ user, products }) => {
+const UserProfile = () => {
   const [postedItems, setPostedItems] = useState([]);
-  const [data, setData] = useState({});
+  const [user, setUser] = useState({});
 
+  //get user
   useEffect(() => {
     let dataObj = JSON.parse(localStorage.getItem("data"));
-    setData(dataObj);
+    console.log(dataObj);
+    setUser(dataObj);
+    axios.get(`/api/userPage`, {
+      params: {
+        user_id: dataObj.user_id,
+      },
+    });
+  }, []);
+  //get user items
+  useEffect(() => {
+    let dataObj = JSON.parse(localStorage.getItem("data"));
+    console.log(dataObj);
     axios
-      .get(`/api/userPage`, {
+      .get(`/api/userItems`, {
         params: {
           user_id: dataObj.user_id,
         },
@@ -26,20 +38,16 @@ const UserProfile = ({ user, products }) => {
 
   return (
     <>
-      {user.map((userData) => (
-        <div
-          key={userData.userId}
-          className="flex flex-col w-full min-h-screen text-black"
-        >
-          <Header />
-          <div className="flex grow flex-col">
-            <main className="w-full max-w-screen-2xl my-0 mr-auto ml-auto">
-              <UserProfileInfo user={userData} />
-              <UserProfileItems user={userData} products={products} />
-            </main>
-          </div>
+      <div className="flex flex-col w-full min-h-screen text-black">
+        <Header />
+        <div className="flex grow flex-col">
+          <main className="w-full max-w-screen-2xl my-0 mr-auto ml-auto">
+            <UserProfileInfo user={user} />
+            <UserProfileItems user={user} products={postedItems} />
+          </main>
         </div>
-      ))}
+      </div>
+
       <Footer />
     </>
   );
