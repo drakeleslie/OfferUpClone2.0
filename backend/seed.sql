@@ -1,4 +1,5 @@
 INSERT INTO users (username, email , password, city, state, picture) VALUES ('superuser', 'superuser@superuser.com', 'superuser', 'Denver', 'Colorado', 'https://nwsid.net/wp-content/uploads/2015/05/dummy-profile-pic-300x300.png' );
+INSERT INTO users (username, email , password, city, state, picture) VALUES ('user', 'user@user.com', 'user', 'Austin', 'Texas', 'https://nwsid.net/wp-content/uploads/2015/05/dummy-profile-pic-300x300.png' );
 INSERT INTO posted_items (api_id, title, price, category, description, image, user_id) VALUES (1, 'title', 'price', 'category', 'description', 'https://api.time.com/wp-content/uploads/2014/11/potato.jpg', 1);
 INSERT INTO posted_items (api_id, title, price, category, description, image, user_id) VALUES (1, 'title', 'price', 'category', 'description', 'https://api.time.com/wp-content/uploads/2014/11/potato.jpg', 1);
 INSERT INTO posted_items (api_id, title, price, category, description, image, user_id) VALUES (1, 'title', 'price', 'category', 'description', 'https://api.time.com/wp-content/uploads/2014/11/potato.jpg', 1);
