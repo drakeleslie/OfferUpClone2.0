@@ -30,14 +30,14 @@ const NavBar = ({ currentUser }) => {
       </a>
       <div className="ml-[400px] flex flex-col rounded hover:bg-zinc-200 p-2">
         <i className="fa fa-heart-o text-black pl-3.5"></i>
-        <Link href="/saved">
-          <a>Saved</a>
+        <Link href={data ? "/saved" : "/login"}>
+          <a className="pr-3 ml-auto">{data ? "Saved" : "Saved"}</a>
         </Link>
       </div>
       <div className="flex flex-col rounded hover:bg-zinc-200 p-2">
-        <i className="pl-7 fa fa-dollar text-black"></i>
-        <Link href="/selling">
-          <a className="ml-2">Selling</a>
+        <i className="pl-5 fa fa-dollar text-black"></i>
+        <Link href={data ? "/selling" : "/login"}>
+          <a className="pr-3 ml-auto">{data ? "Selling" : "Selling"}</a>
         </Link>
       </div>
       <div className=" flex flex-col rounded hover:bg-zinc-200 p-2">
