@@ -5,6 +5,7 @@ import axios from "axios";
 import Footer from "../mattscomponents/Footer"
 import Image from "next/image"
 import { data } from "autoprefixer"
+import Router from "next/router";
 
 const ViewItem = () => {
   const [currentImage, setCurrentImage] = useState('')
@@ -12,8 +13,8 @@ const ViewItem = () => {
   const [subImage1, setSubImage1] = useState('')
   const [json, setJson] = useState({category:{}});
   const [dataObj, setDataObj] = useState({});
+  const [saved, setSaved] = useState(false)
   const router = useRouter();
-
   useEffect(() => {
     const data = router.query;
     const json = JSON.parse(data.item);
@@ -23,14 +24,14 @@ const ViewItem = () => {
     setJson(json)
     setDataObj(JSON.parse(localStorage.getItem('data')))
   }, [])
+
   
-  const handleSave = () => {
-    console.log('dataObj.user_id', dataObj.user_id)
-    console.log('json.ttle', json.title)
-    console.log("json.price", json.price)
-    console.log("json.category.name", json.category.name)
-    console.log("json.description", json.description)
-    console.log("currentImage", currentImage)
+  const handleSave = (event) => {
+    event.target.innerHTML = 'Added to Saved!'
+    if(dataObj) {
+      if (saved == true) {
+        console.log('saved')
+      } else {
         axios.post(`/api/saved`, {
                 user_id: dataObj.user_id,
                 title: json.title,
@@ -39,8 +40,14 @@ const ViewItem = () => {
                 description: json.description,
                 image: currentImage
         }).then((res) => {
-            console.log(res)
+
         })
+        setSaved(true); 
+      }
+      } else {
+          router.push('/login')
+          console.log(event.target)
+      }
 }
   
   const handleClick = (e) => {
