@@ -20,14 +20,15 @@ function PostedItems(props) {
     let userId = parseInt(data.user_id)
 
     const handleDelete = (event) => {
-        const newList = postedItems.filter((item) => item.item_id != event.target.id);
+        const newList = postedItems.filter((item) => item.posted_item_id != event.target.id);
+        console.log(newList);
         setPostedItems(newList);
         console.log("id", event.target.id)
         console.log("key")
             axios.delete(`/api/posted`, {
                 params: {
                     user_id: userId,
-                    item_id: event.target.id
+                    posted_item_id: event.target.id
                 }
             }).then((res) => {
                 console.log(res.body)
@@ -43,11 +44,12 @@ function PostedItems(props) {
                     <div key={i} className ="flex flex-wrap box-border mt-4 max-w-xl">
                         <div className ="hover:bg-zinc-200 flex-grow-0 display-block box-border pl-3 pr-12">
                             <ul>
-                                <li className="h-16 flex flex-row">
+                                <li className="h-18 flex flex-row">
                                     <img src={item.image} className="h-16 rounded"></img>
                                     <div className='flex flex-col'>
+                                        <div className="hover:underline pl-4 text-lg truncate max-w-lg">${item.price}</div>
                                         <div className="hover:underline pl-4 text-lg truncate max-w-lg">{item.title}</div>
-                                        <div className="hover:underline text-[#00a87e] font-semibold ml-4 text-sm pt-1 w-12" id={item.item_id}
+                                        <div className="hover:underline text-[#00a87e] font-semibold ml-4 text-sm pt-1 w-12" id={item.posted_item_id}
                                             onClick={handleDelete}>Delete
                                         </div>
                                     </div>
