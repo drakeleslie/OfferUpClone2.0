@@ -63,7 +63,7 @@ function SavedItems(props) {
                                     <img src={item.image} className="h-16 rounded"></img>
                                     <div className='flex flex-col'>
                                         <div className="hover:underline pl-4 text-lg truncate max-w-lg">{item.title}</div>
-                                        <div className="hover:underline text-emerald-500 font-semibold ml-4 text-sm pt-1 w-12" id={item.item_id}
+                                        <div className="hover:underline text-[#00a87e] font-semibold ml-4 text-sm pt-1 w-12" id={item.item_id}
                                             onClick={handleDelete}>Delete
                                         </div>
                                     </div>

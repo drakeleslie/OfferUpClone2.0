@@ -24,9 +24,11 @@ function Footer() {
           </div>
           <div className="flex flex-col pt-4 pr-24">
             <p className="font-medium text-lg">Sell</p>
+            <Link href ={"postitem"}>
             <p className="underline text-sm font-light hover:decoration-gray-500 pb-1">
               Post an item
             </p>
+            </Link>
             <p className="underline text-sm font-light hover:decoration-gray-500 pb-1">
               Auto dealerships
             </p>
