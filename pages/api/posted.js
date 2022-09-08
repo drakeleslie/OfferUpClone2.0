@@ -11,11 +11,11 @@ export default async function posted(req, res) {
           });
     } else if (req.method === "DELETE") {
         const userId = req.query.user_id;
-        const itemId = req.query.item_id;
+        const itemId = req.query.posted_item_id;
         console.log(userId, itemId);
         pool
           .query(
-            "DELETE FROM posted_items WHERE (user_id = $1 and item_id = $2) RETURNING *;",
+            "DELETE FROM posted_items WHERE (user_id = $1 and posted_item_id = $2) RETURNING *;",
             [userId, itemId]
           )
           .then((data) => {
