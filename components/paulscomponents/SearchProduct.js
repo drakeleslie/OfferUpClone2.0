@@ -4,7 +4,7 @@ import axios from "axios";
 import styles from "../../styles/Home.module.css";
 
 
-const Product = () => {
+const SearchProduct = ({data}) => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     axios({
@@ -12,17 +12,45 @@ const Product = () => {
       url: "https://api.escuelajs.co/api/v1/products",
     }).then((res) => setProducts(res.data));
   }, []);
-  //   if (!products) return <div></div>
+  const filterProducts = products.filter(item => item.title.toLowerCase() == data)
   function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
-  //this is the latest commit
+  //EXPERIMENTAL SEARCH FUNCTION 
+        //   const entries = [];
+        //   const split = [];
+        // //   const values = products.forEach(item => entries.push(Object.values(item)))
+        //   for (let i = 0; i < products.length; i++) {
+        //      const desc = Object.values(products[i])
+        //      entries.push(desc[0], desc[1])
+        //     //  entries.push(desc[1])
+        //     //  entries.push(desc[3])
+        //      entries.forEach(str => split.push(JSON.stringify(str).toLowerCase().split(' ')))
+        //   }
+        //   const finalresult = [];
+        //   for (let i = 0; i < split.length; i++) {
+        //     finalresult.push(split[i].filter(item => item == data), split[i - 1])
+        //   }
+        // //   let newresult = finalresult.filter(item => item.length > 0)
+        //   console.log(finalresult)
 
+        // //   const splitValues = [];
+        // //   entries.forEach(arr => arr.forEach(value => console.log(value)))
+        // //   splitValues.push(value.split(' '))
+  //EXPERIMENTAL SEARCH FUNCTION 
+
+   if (filterProducts.length == 0) {
+    return (
+        <>
+        <div>NO SEARCH RESULTS</div>
+        </>
+    )
+   } else {
   return (
     <>
-      {products.map((item) => (
+      {filterProducts.map((item) => (
            <Link key={item.id + "g"}
            href={{
              pathname: "viewitem",
@@ -54,6 +82,7 @@ const Product = () => {
       ))}
     </>
   );
-};
+        }
+}
 
-export default Product;
+export default SearchProduct;

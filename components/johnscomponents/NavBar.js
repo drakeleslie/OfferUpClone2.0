@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import SearchBar from "../../pages/SearchBar";
+
+import SearchBar from "./SearchBar";
 import { useState, useEffect } from "react";
 
 const NavBar = ({ currentUser }) => {
@@ -9,9 +10,7 @@ const NavBar = ({ currentUser }) => {
   useEffect(() => {
     setData(JSON.parse(localStorage.getItem("data")));
   }, []);
-  console.log(data);
 
-  console.log(currentUser, "from navbar");
   return (
     <nav className="flex pt-3 py-4 px-3 border-b border-gray-200">
       <link
@@ -44,13 +43,8 @@ const NavBar = ({ currentUser }) => {
       </div>
       <div className=" flex flex-col rounded hover:bg-zinc-200 p-2">
         <i className="fa fa-user-circle text-black pl-3.5"></i>
-        <Link
-          href={{
-            pathname: "/profile",
-            query: { currentUser: currentUser },
-          }}
-        >
-          <a className="ml-2">Profile</a>
+        <Link href={data ? "/profile" : "/signup"}>
+          <a className="ml-2">{data ? "Profile" : "Signup"}</a>
         </Link>
       </div>
       <div className="hover:bg-grey-100">
