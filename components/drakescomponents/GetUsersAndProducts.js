@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { pool } from "../../backend/database";
 
 export default function storeProductsInDb() {
   const [product, setProduct] = useState([]);
@@ -16,11 +15,27 @@ export default function storeProductsInDb() {
     });
   }, []);
 
+  for (let i = 0; i < product.length; i++) {
+    const productTitle = product[i].title;
+    const productPrice = product[i].price;
+    const productCategory = product[i].category.name;
+    const productDescription = product[i].description;
+    const productImage = product[i].images[0];
+    axios.post("/api/populatePostedItemsTB", {
+      title: productTitle,
+      price: productPrice,
+      category: productCategory,
+      description: productDescription,
+      image: productImage,
+      userId: Math.floor(Math.random() * 10) + 1,
+    });
+  }
+
   //users
   useEffect(() => {
     axios({
       method: "get",
-      url: "https://randomuser.me/api/?results=10",
+      url: "https://randomuser.me/api/?results=30",
     }).then((users) => {
       setPulledUser(users.data.results);
     });
