@@ -12,7 +12,7 @@ const NavBar = () => {
     setData(dataObj);
     console.log(data);
   }, []);
-
+  
   return (
     <div className="" >
     <nav className="flex pt-3 py-4 px-3">
