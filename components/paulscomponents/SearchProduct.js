@@ -9,7 +9,7 @@ const SearchProduct = ({data}) => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "https://api.escuelajs.co/api/v1/products",
+      url: "/api/posted",
     }).then((res) => setProducts(res.data));
   }, []);
   const filterProducts = products.filter(item => item.title.toLowerCase() == data)
@@ -63,7 +63,7 @@ const SearchProduct = ({data}) => {
               <img
                 key={item.id + "d"}
                 className={styles.productimage}
-                src={`${item.images[1]}`}
+                src={`${item.image}`}
                 alt="product"
               />
             </span>
