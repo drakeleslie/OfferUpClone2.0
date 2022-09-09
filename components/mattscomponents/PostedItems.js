@@ -73,40 +73,35 @@ function PostedItems() {
                 <div className={"font-normal text-base font-serif mt-6 grid grid-cols-3 gap-20 grid-flow-row grid-"}>
                     {postedItems.map((item, i) => (
                     <div key={i} className ="flex flex-wrap box-border mt-4 max-w-xl pt-2">
-                        <div className ="hover:bg-zinc-200 flex-grow-0 display-block box-border pl-3 pr-12">
+                        <div className ="hover:bg-zinc-200 flex-grow-0 display-block box-border pl-3 pr-2">
                             <ul>
                                 <li className="h-18 flex flex-row">
                                     <img src={item.image} className="h-16 rounded mt-2"></img>
                                     <div className='flex flex-col'>
                                         <div className="hover:underline pl-4 text-lg truncate max-w-lg">${item.price}</div>
                                         <div className="hover:underline pl-4 text-lg truncate max-w-lg">{item.title}</div>
-                                        <div className="hover:underline text-[#00a87e] font-semibold ml-4 text-sm pt-1 w-12" id={item.posted_item_id}
+                                        <div className="hover:underline text-[#00a87e] font-semibold ml-4 text-sm pt-1 w-12 flex flex-row" id={item.posted_item_id}
                                             onClick={handleDelete}>Delete
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <form>
-                                            <input className ='relative left-10 top-[58px] font-semibold w-20 text-sm rounded' id={item.posted_item_id + 's'}
+                                            <form className='flex flex-row'>
+                                            <input className='ml-8 w-[75px] rounded' id={item.posted_item_id + 's'}
                                                 onChange={(event) => setPrice(event.target.value)} placeholder="New Price"/>
-                                            <button className="relative top-[58px] left-[46px] border-1 border-solid border-black fa fa-save" 
+                                            <button className="text-black fa fa-save ml-2" 
                                                 onClick={handleChangePrice} type="submit" id={item.posted_item_id + 'b'}></button>
-                                        </form>
-                                    </div>    
+                                            </form>
+                                             <div>
+                                          </div> 
+                                        </div>
+                                    </div>   
                                 </li>
-                                <hr className={"h-0.5 bg-zinc-200 mt-4"}></hr>
+                                <hr className={"h-0.5 bg-zinc-200 mt-4 min-w-[300px]"}></hr>
                             </ul>
                         </div>
                     </div>
-                  </li>
-                  <hr className={"h-0.5 bg-zinc-200 mt-4"}></hr>
-                </ul>
-              </div>
+                    ))}
+                </div>
             </div>
-          ))}
         </div>
-      </div>
-    </div>
-  );
+    );
 }
 
 export default PostedItems;
