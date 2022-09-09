@@ -63,7 +63,7 @@ const Userlogin = () => {
           </Link>{" "}
           Log In
           <br></br> <br></br>
-          <span className="text-emerald-600 text-3xl font-extrabold ">
+          <span className="text-[#00a87e] text-3xl font-extrabold ">
             OfferDown
           </span>
           <div>
@@ -71,7 +71,7 @@ const Userlogin = () => {
               Name
             </label>
             <input
-              className="bg-white border-emerald-500 border-2 shadow-inner rounded font-thin p-2 flex-1 w-full "
+              className="bg-white border-[#00a87e] border-2 shadow-inner rounded font-thin p-2 flex-1 w-full "
               id="username"
               type="text"
               value={username}
@@ -87,7 +87,7 @@ const Userlogin = () => {
               Password
             </label>
             <input
-              className="bg-white border-emerald-500 border-2 shadow-inner rounded  p-2 flex-1 w-full "
+              className="bg-white border-[#00a87e] border-2 shadow-inner rounded  p-2 flex-1 w-full "
               id="password"
               minLength="6"
               required
@@ -107,14 +107,14 @@ const Userlogin = () => {
           <div>
             <Link
               href={"signup"}
-              className="text-small justify-self-start  text-sm text-emerald-600 font-bold "
+              className="text-small justify-self-start  text-sm text-[#00a87e] font-bold "
             >
               Have an account? Sign up
             </Link>
             <button
               type="submit"
               onClick={login}
-              className="bg-slate-100 text-slate-400 hover:bg-emerald-600 hover:text-white duration-300  shadow p-2 mt-2 mr-6 rounded-full  ml-2 w-[95%]"
+              className="bg-slate-100 text-slate-400 hover:bg-[#00a87e] hover:text-white duration-300  shadow p-2 mt-2 mr-6 rounded-full  ml-2 w-[95%]"
             >
               Log in
             </button>
