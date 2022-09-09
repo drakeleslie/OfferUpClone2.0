@@ -33,6 +33,8 @@ CREATE TABLE posted_items(
     category TEXT,
     description TEXT,
     image TEXT,
+    imageTwo TEXT,
+    imageThree TEXT,
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );

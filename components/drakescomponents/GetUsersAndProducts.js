@@ -27,7 +27,7 @@ export default function storeProductsInDb() {
       category: productCategory,
       description: productDescription,
       image: productImage,
-      userId: Math.floor(Math.random() * 10) + 1,
+      userId: Math.floor(Math.random() * 40) + 1,
     });
   }
 
