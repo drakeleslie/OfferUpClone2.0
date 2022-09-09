@@ -1,6 +1,7 @@
 import { pool } from "../../backend/database";
 export default async function posted(req, res) {
     if (req.method === "GET") {
+      if (req.query.user_id) {
         const userId = req.query.user_id;
         console.log(userId)
         console.log(`Recieved Saved Request: ${req.body}`);
@@ -9,6 +10,13 @@ export default async function posted(req, res) {
           .then((data) => {
             res.send(data.rows);
           });
+        } else {
+          await pool
+          .query("SELECT * FROM posted_items;")
+          .then((data) => {
+            res.send(data.rows);
+          });
+        }
     } else if (req.method === "DELETE") {
         const userId = req.query.user_id;
         const itemId = req.query.posted_item_id;

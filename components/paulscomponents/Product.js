@@ -6,13 +6,16 @@ import styles from "../../styles/Home.module.css";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
-  useEffect(() => {
-    axios({
-      method: "get",
-      url: "https://api.escuelajs.co/api/v1/products",
-    }).then((res) => setProducts(res.data));
+
+  useEffect( () => {
+    async function fetchData() {
+         await axios({
+          method: "get",
+          url: "https://api.escuelajs.co/api/v1/products",
+        }).then((res) => setProducts(res.data));
+    }
+  fetchData()
   }, []);
-  //   if (!products) return <div></div>
   function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
