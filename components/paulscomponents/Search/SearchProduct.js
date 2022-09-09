@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
-import styles from "../../styles/Home.module.css";
+import styles from "../../../styles/Home.module.css";
 
 
 const SearchProduct = ({data}) => {
