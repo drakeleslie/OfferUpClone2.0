@@ -10,7 +10,7 @@ const NavBar = () => {
     setData(dataObj);
     console.log(data);
   }, []);
-
+  
   return (
     <nav className="flex pt-3 py-4 px-3 border-b border-gray-200">
       <link
