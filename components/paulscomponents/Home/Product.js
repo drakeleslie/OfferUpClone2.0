@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
-import styles from "../../styles/Home.module.css";
+import styles from "../../../styles/Home.module.css";
 
 
-const PostedProduct = () => {
+const Product = () => {
   const [products, setProducts] = useState([]);
 
   useEffect( () => {
@@ -58,4 +58,4 @@ const PostedProduct = () => {
   );
 };
 
-export default PostedProduct;
+export default Product;
