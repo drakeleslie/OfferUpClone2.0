@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function PostedItems(props) {
+function PostedItems() {
     const [postedItems, setPostedItems] = useState([]);
     const [price, setPrice] = useState('');
     const [data, setData] = useState({})
@@ -35,17 +35,16 @@ function PostedItems(props) {
 
     const handleChangePrice = (event) => {
         event.preventDefault();
-        console.log("id", event.target.id);
-        console.log("price", price);
-        console.log("posted item id", event.target.id);
             axios.patch(`/api/posted`, {
                 params: {
                     user_id: userId,
-                    posted_item_id: event.target.id,
+                    posted_item_id: parseInt(event.target.id),
                     price: price
                 }
             }).then((res) => {
-                setPostedItems(res.data)
+                let priceInput = document.getElementById(parseInt(event.target.id) + 's');
+                  priceInput.value = '';
+                  priceInput.placeholder = "New Price";
             }).then((res) => {
                 let dataObj = JSON.parse(localStorage.getItem('data'))
                 setData(dataObj)
@@ -68,11 +67,11 @@ function PostedItems(props) {
             <div className="flex justify-center">
                 <div className={"font-normal text-base font-serif mt-6 grid grid-cols-3 gap-20 grid-flow-row grid-"}>
                     {postedItems.map((item, i) => (
-                    <div key={i} className ="flex flex-wrap box-border mt-4 max-w-xl">
+                    <div key={i} className ="flex flex-wrap box-border mt-4 max-w-xl pt-2">
                         <div className ="hover:bg-zinc-200 flex-grow-0 display-block box-border pl-3 pr-12">
                             <ul>
                                 <li className="h-18 flex flex-row">
-                                    <img src={item.image} className="h-16 rounded"></img>
+                                    <img src={item.image} className="h-16 rounded mt-2"></img>
                                     <div className='flex flex-col'>
                                         <div className="hover:underline pl-4 text-lg truncate max-w-lg">${item.price}</div>
                                         <div className="hover:underline pl-4 text-lg truncate max-w-lg">{item.title}</div>
@@ -80,12 +79,12 @@ function PostedItems(props) {
                                             onClick={handleDelete}>Delete
                                         </div>
                                     </div>
-                                    <div id={item.posted_item_id}>
-                                        <form id={item.posted_item_id}>
-                                            <input className ='relative left-10 top-[58px] font-semibold w-20 text-sm' id={item.posted_item_id}
+                                    <div>
+                                        <form>
+                                            <input className ='relative left-10 top-[58px] font-semibold w-20 text-sm rounded' id={item.posted_item_id + 's'}
                                                 onChange={(event) => setPrice(event.target.value)} placeholder="New Price"/>
                                             <button className="relative top-[58px] left-[46px] border-1 border-solid border-black fa fa-save" 
-                                                onClick={handleChangePrice} type="submit" id={item.posted_item_id}></button>
+                                                onClick={handleChangePrice} type="submit" id={item.posted_item_id + 'b'}></button>
                                         </form>
                                     </div>    
                                 </li>
