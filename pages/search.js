@@ -1,4 +1,4 @@
-import SearchContainer from "../components/paulscomponents/SearchContainer";
+import SearchContainer from "../components/paulscomponents/Search/SearchContainer";
 import { useRouter } from "next/router";
 //search page
 export default function Search() {
