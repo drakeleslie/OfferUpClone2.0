@@ -101,18 +101,20 @@ const Userlogin = () => {
               placeholder=""
             />
           </div>
+          <div className="text-[#00a87e]">
           <Link 
             href="#"
             className="text-small justify-self-start font-light underline"
           >
             Forgot your password?
           </Link>
-          <div>
+          </div>
+          <div className="text-[#00a87e]">
             <Link
               href={"signup"}
               className="text-small justify-self-start  text-sm text-[#00a87e] font-bold "
             >
-              Have an account? Sign up
+              Dont have an account? Sign up
             </Link>
             <button
               type="submit"

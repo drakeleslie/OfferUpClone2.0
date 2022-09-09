@@ -49,7 +49,9 @@ function SavedItems(props) {
                     <div className={"font-medium p-1 pl-3 pb-2"}>Saves</div>
                     <div className={"bg-green-100 font-medium p-1 pl-3 pb-2"}>Saved items</div>
                     <div className={"font-medium p-1 pl-3 pb-2"}>Account</div>
-                    <div className={"hover:bg-zinc-200 p-1 pl-3 font-light pb-3"}>Account settings</div>
+                    <Link href="/account">
+                        <div className={"hover:bg-zinc-200 p-1 pl-3 font-light pb-3 cursor-pointer"}>Account settings</div>
+                    </Link>
                     <hr className={"h-px bg-zinc-300 pl-3 mx-4"}></hr>
                     <Link href="/profile" ><div className={"underline p-1 pl-3 pt-3 hover:text-zinc-400 pb-4 text-sm font-light"}>View public profile</div></Link>
                 </div>

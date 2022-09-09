@@ -38,13 +38,15 @@ function UserSignUp() {
       <div className="flex border-2 rounded-3xl p-7 shadow-xl  h-[90%] w-[40%] mt-9">
         <form>
           <div className="divide-y-4 divide-white  h-6 w-full text-center font-extrabold space-y-2 grid justify-items-stretch">
+            <div className=" w-full flex justify-end text text-[#00a87e] ">
             <Link href="/login" className="justify-self-end text-slate-400 -mt-6">
               cancel
             </Link>{" "}
+            </div>
             Sign Up
             <br></br> <br></br>
             <span className="text-[#00a87e] text-3xl font-extrabold">
-              OfferDown
+              OfferUp
             </span>
             <div>
               <label className="block text-left text-gray-700 text-sm font-bold mb-2">

@@ -1,7 +1,6 @@
-import styles from "../../styles/Home.module.css"
-import PostedProduct from "./PostedProduct"
-import Product from "./Product"
-const HomeComp = () => {
+import styles from "../../../styles/Home.module.css"
+import Category from "./Category"
+const CategoriesComp = ({data}) => {
 
   return (
     <div className="flex flex-row justify-center grow">
@@ -10,8 +9,7 @@ const HomeComp = () => {
          <div>
           <div>
            <div className={styles.gridbox}>
-              <Product /> 
-              {/* <PostedProduct />  */}
+              <Category data={data}/> 
              <div></div>
            </div>
           </div>
@@ -22,4 +20,4 @@ const HomeComp = () => {
   )
 }
 
-export default HomeComp
+export default CategoriesComp

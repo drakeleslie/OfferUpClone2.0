@@ -2,16 +2,20 @@ import React from "react";
 import Link from "next/link";
 import SearchBar from "./SearchBar";
 import { useState, useEffect } from "react";
+import Categories from "../paulscomponents/Categories/Categories";
+import styles from '../../styles/Header.module.css'
 
-const NavBar = ({ currentUser }) => {
+const NavBar = () => {
   const [data, setData] = useState({});
-
   useEffect(() => {
-    setData(JSON.parse(localStorage.getItem("data")));
+    let dataObj = JSON.parse(localStorage.getItem("data"));
+    setData(dataObj);
+    console.log(data);
   }, []);
 
   return (
-    <nav className="flex pt-3 py-4 px-3 border-b border-gray-200">
+    <div className="" >
+    <nav className="flex pt-3 py-4 px-3">
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -25,8 +29,7 @@ const NavBar = ({ currentUser }) => {
         }
       ></img>
       <a className="text-[#00a87e] pl-1 pt-3 text-lg font-semibold">
-        {" "}
-        Location
+        {data ? data.city : "Location"}
       </a>
       <div className="ml-[400px] flex flex-col rounded hover:bg-zinc-200 p-2">
         <i className="fa fa-heart-o text-black pl-3.5"></i>
@@ -68,6 +71,10 @@ const NavBar = ({ currentUser }) => {
         </div>
       </div>
     </nav>
+    <div className={styles.header}>
+      <Categories />
+    </div>
+    </div>
   );
 };
 
