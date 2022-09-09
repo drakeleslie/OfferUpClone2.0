@@ -11,7 +11,7 @@ const HomeComp = () => {
           <div>
            <div className={styles.gridbox}>
               <Product /> 
-              <PostedProduct /> 
+              {/* <PostedProduct />  */}
              <div></div>
            </div>
           </div>
