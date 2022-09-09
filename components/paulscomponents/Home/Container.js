@@ -5,7 +5,7 @@ import Footer from "../../mattscomponents/Footer";
 
 const Container = ({ currentUser }) => {
   return (
-    <div className="flex flex-col min-h-screen text-black w-full w-screen">
+    <div className="flex flex-col min-h-screen text-black w-full">
       <Header currentUser={currentUser} />
       <div className="flex grow flex-col">
         <div className={styles.spacer}></div>
