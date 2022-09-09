@@ -1,4 +1,4 @@
-import styles from "../../styles/Home.module.css"
+import styles from "../../../styles/Home.module.css"
 import SearchProduct from "./SearchProduct"
 const SearchComp = ({data}) => {
 
