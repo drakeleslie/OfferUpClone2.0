@@ -1,31 +1,40 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
-import styles from "../../styles/Home.module.css";
+import styles from "../../../styles/Home.module.css";
 
 
-const Product = () => {
+const Category = ({data}) => {
   const [products, setProducts] = useState([]);
-
-  useEffect( () => {
-    async function fetchData() {
-         await axios({
-          method: "get",
-          url: "https://api.escuelajs.co/api/v1/products",
-        }).then((res) => setProducts(res.data));
-    }
-  fetchData()
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "/api/posted",
+    }).then((res) => setProducts(res.data));
   }, []);
-  function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  const filterProducts = products.filter(item => item.title.toLowerCase() == data)
+  //EXPERIMENTAL SEARCH FUNCTION 
+  function filterIt(arr, searchKey) {
+    let result = [];
+    arr.forEach((obj) => {
+      if (obj.category.toLowerCase().includes(searchKey)) {
+        result.push(obj)
+      }
+    });
+    return result; 
   }
-  //this is the latest commit
+  //EXPERIMENTAL SEARCH FUNCTION 
 
+   if (filterIt(products, data).length == 0) {
+    return (
+        <>
+        <div>NO SEARCH RESULTS</div>
+        </>
+    )
+   } else {
   return (
     <>
-      {products.map((item) => (
+      {filterIt(products, data).map((item) => (
            <Link key={item.id + "g"}
            href={{
              pathname: "viewitem",
@@ -38,7 +47,7 @@ const Product = () => {
               <img
                 key={item.id + "d"}
                 className={styles.productimage}
-                src={`${item.images[1]}`}
+                src={`${item.image}`}
                 alt="product"
               />
             </span>
@@ -57,6 +66,7 @@ const Product = () => {
       ))}
     </>
   );
-};
+        }
+}
 
-export default Product;
+export default Category;

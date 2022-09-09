@@ -1,7 +1,7 @@
-import Header from "../johnscomponents/Header";
+import Header from "../../johnscomponents/Header";
 import HomeComp from "./HomeComp";
-import styles from "../../styles/Home.module.css";
-import Footer from "../mattscomponents/Footer";
+import styles from "../../../styles/Home.module.css";
+import Footer from "../../mattscomponents/Footer";
 
 const Container = ({ currentUser }) => {
   return (

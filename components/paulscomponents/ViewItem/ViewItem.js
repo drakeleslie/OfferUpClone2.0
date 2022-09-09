@@ -1,11 +1,7 @@
 import { useRouter } from "next/router"
-import styles from "../../styles/ViewItem.module.css"
+import styles from "../../../styles/ViewItem.module.css"
 import { useEffect, useState }from "react"
 import axios from "axios";
-import Footer from "../mattscomponents/Footer"
-import Image from "next/image"
-import { data } from "autoprefixer"
-import Router from "next/router";
 
 const ViewItem = () => {
   const [currentImage, setCurrentImage] = useState('')

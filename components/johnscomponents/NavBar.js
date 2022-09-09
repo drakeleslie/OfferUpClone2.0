@@ -2,6 +2,8 @@ import React from "react";
 import Link from "next/link";
 import SearchBar from "./SearchBar";
 import { useState, useEffect } from "react";
+import Categories from "../paulscomponents/Categories/Categories";
+import styles from '../../styles/Header.module.css'
 
 const NavBar = ({ currentUser }) => {
   const [data, setData] = useState({});
@@ -11,7 +13,8 @@ const NavBar = ({ currentUser }) => {
   }, []);
 
   return (
-    <nav className="flex pt-3 py-4 px-3 border-b border-gray-200">
+    <div className="" >
+    <nav className="flex pt-3 py-4 px-3">
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -68,6 +71,10 @@ const NavBar = ({ currentUser }) => {
         </div>
       </div>
     </nav>
+    <div className={styles.header}>
+      <Categories />
+    </div>
+    </div>
   );
 };
 
