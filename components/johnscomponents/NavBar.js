@@ -2,14 +2,27 @@ import React from "react";
 import Link from "next/link";
 import SearchBar from "./SearchBar";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
-const NavBar = ({ currentUser }) => {
+const NavBar = ({ props }) => {
   const [data, setData] = useState({});
+  // console.log(localStorage.getItem("data"));
 
   useEffect(() => {
-    setData(JSON.parse(localStorage.getItem("data")));
+    let dataObj = JSON.parse(localStorage.getItem("data"));
+    // setData(dataObj);
+    // axios
+    //   .get(`/api/posted`, {
+    //     params: {
+    //       user_id: dataObj.location,
+    //     },
+    //   })
+    //   .then((res) => {
+    //     NavBar(res.data);
+    //   });
   }, []);
 
+  // console.log(localStorage.getItem("data"));
   return (
     <nav className="flex pt-3 py-4 px-3 border-b border-gray-200">
       <link
@@ -25,8 +38,7 @@ const NavBar = ({ currentUser }) => {
         }
       ></img>
       <a className="text-[#00a87e] pl-1 pt-3 text-lg font-semibold">
-        {" "}
-        Location
+        {data ? `${data.city}` : "Location"}
       </a>
       <div className="ml-[400px] flex flex-col rounded hover:bg-zinc-200 p-2">
         <i className="fa fa-heart-o text-black pl-3.5"></i>
