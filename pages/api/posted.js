@@ -5,7 +5,7 @@ export default async function posted(req, res) {
         console.log(userId)
         console.log(`Recieved Saved Request: ${req.body}`);
         await pool
-          .query("SELECT * FROM posted_items WHERE (user_id = $1);", [userId])
+          .query("SELECT * FROM posted_items WHERE (user_id = $1) ORDER BY posted_item_id ASC;", [userId])
           .then((data) => {
             res.send(data.rows);
           });
@@ -26,7 +26,7 @@ export default async function posted(req, res) {
               res.status(204).send(data.rows[0]);
             }
           });
-    } else {
+    } else if (req.method === "POST") {
         const title = req.body.title; 
         const price = req.body.price; 
         const category = req.body.category; 
@@ -36,5 +36,16 @@ export default async function posted(req, res) {
         pool.query("INSERT INTO posted_items(title, price, category, description, image, user_id) VALUES ($1, $2, $3, $4, $5, $6)", 
             [ title, price, category, description, image, user_id ])
             res.send(`${title} inserted into posted items`)
+    } else {
+        console.log(req.body.params)
+        const itemId = req.body.params.posted_item_id;
+        const userId = req.body.params.user_id;
+        const price = req.body.params.price;
+        console.log(itemId, userId, price);
+        pool.query("UPDATE posted_items SET price=COALESCE($1, price) WHERE (user_id=$2 and posted_item_id=$3) RETURNING *",
+            [price, userId, itemId])
+        .then((data) => {
+            res.send(data.rows);
+        });
     }
 }
