@@ -38,15 +38,15 @@ const UserProfile = () => {
   }, []);
 
   //items
-  useEffect(() => {
-    axios({
-      method: "get",
-      url: "https://api.escuelajs.co/api/v1/products",
-    }).then((products) => {
-      setProduct(products.data);
-    });
-  }, []);
-  console.log(product);
+  // useEffect(() => {
+  //   axios({
+  //     method: "get",
+  //     url: "https://api.escuelajs.co/api/v1/products",
+  //   }).then((products) => {
+  //     setProduct(products.data);
+  //   });
+  // }, []);
+  // console.log(product);
 
   // for (let i = 0; i < product.length; i++) {
   //   const productTitle = product[i].title;
@@ -65,16 +65,16 @@ const UserProfile = () => {
   // }
 
   //users
-  useEffect(() => {
-    axios({
-      method: "get",
-      url: "https://randomuser.me/api/?results=30",
-    }).then((users) => {
-      setPulledUser(users.data.results);
-    });
-  });
+  // useEffect(() => {
+  //   axios({
+  //     method: "get",
+  //     url: "https://randomuser.me/api/?results=30",
+  //   }).then((users) => {
+  //     setPulledUser(users.data.results);
+  //   });
+  // });
 
-  console.log(pulledUser);
+  // console.log(pulledUser);
   // for (let i = 0; i < pulledUser.length; i++) {
   //   const userEmail = pulledUser[i].email;
   //   const userPassword = pulledUser[i].login.password;
