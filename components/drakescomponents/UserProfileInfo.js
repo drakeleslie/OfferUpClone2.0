@@ -17,7 +17,7 @@ const UserProfileInfo = ({ user }) => {
                 <p>
                   <b>{user.username}</b>
                 </p>
-                <p>Joined *num*</p>
+                <p>Joined {user.account_age}</p>
                 <p>
                   {user.city}, {user.state}
                 </p>
