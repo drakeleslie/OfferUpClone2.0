@@ -3,11 +3,12 @@ import Link from "next/link";
 import SearchBar from "./SearchBar";
 import { useState, useEffect } from "react";
 
-const NavBar = ({ currentUser }) => {
+const NavBar = () => {
   const [data, setData] = useState({});
-
   useEffect(() => {
-    setData(JSON.parse(localStorage.getItem("data")));
+    let dataObj = JSON.parse(localStorage.getItem("data"));
+    setData(dataObj);
+    console.log(data);
   }, []);
 
   return (
@@ -25,8 +26,7 @@ const NavBar = ({ currentUser }) => {
         }
       ></img>
       <a className="text-[#00a87e] pl-1 pt-3 text-lg font-semibold">
-        {" "}
-        Location
+        {data ? data.city : "Location"}
       </a>
       <div className="ml-[400px] flex flex-col rounded hover:bg-zinc-200 p-2">
         <i className="fa fa-heart-o text-black pl-3.5"></i>
