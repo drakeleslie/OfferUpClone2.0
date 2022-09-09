@@ -52,23 +52,26 @@ const Userlogin = () => {
         
 
   return (
-    <div className="p-8  justify-center items-center h-screen flex">
+    <div className="p-8  justify-center items-center h-screen flex ">
       <form className="flex border-2 rounded-3xl p-7 shadow-xl  h-[80%] w-[40%]  ">
         <div className="divide-y-4 divide-white  h-6 w-full text-center font-extrabold space-y-2 grid justify-items-stretch">
+          <div className=" w-full flex justify-end text text-[#00a87e] ">
           <Link
             href={"login"}
-            className="justify-self-end text-slate-400 font-light -mt-6"
+            className=""
           >
             cancel
           </Link>{" "}
-          Log In
+          </div>
+          <button className=" underline text-xl">Log in</button>
+          
           <br></br> <br></br>
           <span className="text-[#00a87e] text-3xl font-extrabold ">
             OfferUp
           </span>
           <div>
             <label className="block text-left text-gray-700 text-sm font-bold mb-2">
-              Name
+              Username
             </label>
             <input
               className="bg-white border-[#00a87e] border-2 shadow-inner rounded font-thin p-2 flex-1 w-full "
@@ -77,7 +80,7 @@ const Userlogin = () => {
               value={username}
               onChange={(event) => setUsername(event.target.value)} // username is set to value of input
               aria-label="username"
-              placeholder="Ex. johndoe@offerdown.com"
+              placeholder="Ex. johndoe"
             />
           </div>
           <div>
@@ -98,18 +101,20 @@ const Userlogin = () => {
               placeholder=""
             />
           </div>
+          <div className="text-[#00a87e]">
           <Link 
             href="#"
             className="text-small justify-self-start font-light underline"
           >
             Forgot your password?
           </Link>
-          <div>
+          </div>
+          <div className="text-[#00a87e]">
             <Link
               href={"signup"}
               className="text-small justify-self-start  text-sm text-[#00a87e] font-bold "
             >
-              Have an account? Sign up
+              Dont have an account? Sign up
             </Link>
             <button
               type="submit"
@@ -119,7 +124,7 @@ const Userlogin = () => {
               Log in
             </button>
           </div>
-          <div className="text-xs ">
+          <div className="text-xs">
             By tapping any of the buttons above, you agree to nothing and
             acknowledge nothing <br></br>
             <br></br>
