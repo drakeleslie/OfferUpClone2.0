@@ -1,4 +1,5 @@
 import styles from "../../styles/Home.module.css"
+import PostedProduct from "./PostedProduct"
 import Product from "./Product"
 const HomeComp = () => {
 
@@ -10,6 +11,7 @@ const HomeComp = () => {
           <div>
            <div className={styles.gridbox}>
               <Product /> 
+              <PostedProduct /> 
              <div></div>
            </div>
           </div>
