@@ -1,5 +1,5 @@
 import Head from "next/head"
-import ViewItemContainer  from "../components/paulscomponents/ViewItem/ViewItemContainer"
+import ViewItemContainer  from "../components/paulscomponents/ViewItem/ViewItemContainer.js"
 
 const ViewItem = () => {
   return (
