@@ -64,7 +64,7 @@ const Userlogin = () => {
           Log In
           <br></br> <br></br>
           <span className="text-[#00a87e] text-3xl font-extrabold ">
-            OfferDown
+            OfferUp
           </span>
           <div>
             <label className="block text-left text-gray-700 text-sm font-bold mb-2">

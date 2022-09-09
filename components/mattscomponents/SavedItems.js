@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import QuickSave from "./QuickSave";
 import Link from "next/link";
-import Image from "next/image";
 
 function SavedItems(props) {
     const [savedItems, setSavedItems] = useState([]);
