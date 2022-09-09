@@ -6,32 +6,37 @@ function PostedItems() {
     const [price, setPrice] = useState('');
     const [data, setData] = useState({})
 
-    useEffect(() => {
-        let dataObj = JSON.parse(localStorage.getItem('data'))
-        setData(dataObj)
-        axios.get(`/api/posted`, {
-            params: {
-                user_id: dataObj.user_id
-            }
-        }).then((res) => {
-            setPostedItems(res.data);
-        })
-    }, [])
+  useEffect(() => {
+    let dataObj = JSON.parse(localStorage.getItem("data"));
+    setData(dataObj);
+    axios
+      .get(`/api/posted`, {
+        params: {
+          user_id: dataObj.user_id,
+        },
+      })
+      .then((res) => {
+        setPostedItems(res.data);
+      });
+  }, []);
 
-    let userId = parseInt(data.user_id)
+  let userId = parseInt(data.user_id);
 
-    const handleDelete = (event) => {
-        const newList = postedItems.filter((item) => item.posted_item_id != event.target.id);
-        console.log(newList);
-        setPostedItems(newList);
-            axios.delete(`/api/posted`, {
-                params: {
-                    user_id: userId,
-                    posted_item_id: event.target.id
-                }
-            }).then((res) => {
-            })
-    }
+  const handleDelete = (event) => {
+    const newList = postedItems.filter(
+      (item) => item.posted_item_id != event.target.id
+    );
+    console.log(newList);
+    setPostedItems(newList);
+    axios
+      .delete(`/api/posted`, {
+        params: {
+          user_id: userId,
+          posted_item_id: event.target.id,
+        },
+      })
+      .then((res) => {});
+  };
 
     const handleChangePrice = (event) => {
         event.preventDefault();
@@ -92,11 +97,16 @@ function PostedItems() {
                             </ul>
                         </div>
                     </div>
-                    ))}
-                </div>
+                  </li>
+                  <hr className={"h-0.5 bg-zinc-200 mt-4"}></hr>
+                </ul>
+              </div>
             </div>
-        </div> 
-    );
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default PostedItems;

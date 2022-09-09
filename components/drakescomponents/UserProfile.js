@@ -109,8 +109,8 @@ const UserProfile = () => {
         <div className="flex grow flex-col">
           <main className="w-full max-w-screen-2xl my-0 mr-auto ml-auto">
             <UserProfileInfo user={user} />
-            <button onClick={handleSubmitItem}>press me 2nd</button>
-            <button onClick={handleSubmitUser}>press me 1st</button>
+            {/* <button onClick={handleSubmitItem}>press me 2nd</button>
+            <button onClick={handleSubmitUser}>press me 1st</button> */}
             <UserProfileItems user={user} products={postedItems} />
           </main>
         </div>

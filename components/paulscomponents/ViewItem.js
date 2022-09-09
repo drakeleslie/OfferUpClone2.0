@@ -11,18 +11,35 @@ const ViewItem = () => {
   const [currentImage, setCurrentImage] = useState('')
   const [subImage, setSubImage] = useState('')
   const [subImage1, setSubImage1] = useState('')
-  const [json, setJson] = useState({category:{}});
+  const [json, setJson] = useState({});
   const [dataObj, setDataObj] = useState({});
   const [saved, setSaved] = useState(false)
+  const [seller, setSeller] = useState({})
   const router = useRouter();
   useEffect(() => {
     const data = router.query;
     const json = JSON.parse(data.item);
-    setCurrentImage(json.images[1]);
-    setSubImage(json.images[0]);
-    setSubImage1(json.images[2]);
-    setJson(json)
     setDataObj(JSON.parse(localStorage.getItem('data')))
+    if (json.imagetwo) {
+    setCurrentImage(json.image);
+    setSubImage(json.imagetwo);
+    setSubImage1(json.imagethree);
+    } else {
+      setCurrentImage(json.image);
+      setSubImage(json.image);
+      setSubImage1(json.image);
+    }
+    setJson(json)
+    async function fetchData() {
+      await axios({
+       method: "get",
+       url: "/api/userPage",
+       params: {
+        user_id: json.user_id,
+       }
+     }).then((res) => setSeller(res.data[0]));
+   }
+   fetchData()
   }, [])
 
   
@@ -36,7 +53,7 @@ const ViewItem = () => {
                 user_id: dataObj.user_id,
                 title: json.title,
                 price: json.price,
-                category: json.category.name,
+                category: json.category,
                 description: json.description,
                 image: currentImage
         }).then((res) => {
@@ -59,6 +76,8 @@ const ViewItem = () => {
     setCurrentImage(e.target.dataset.image)
 
  }
+console.log({seller})
+
   return (
     <div>
        <div className={styles.biggrid}>
@@ -81,7 +100,7 @@ const ViewItem = () => {
           <div className={styles.title}>{json.title}</div>
           <div className={styles.price}>${json.price}</div>
           <div className={styles.condition}>Condition: Used(normal wear)</div>
-          <div className={styles.condition}>Category: {json.category.name}</div>
+          <div className={styles.condition}>Category: {json.category}</div>
           <button className={styles.buybtn}>Buy now</button>
           <div className={styles.btncontainer}>
             <button className={styles.askbtn}>Ask</button>
@@ -90,11 +109,29 @@ const ViewItem = () => {
           <div className={styles.savecontainer}> 
             <button onClick={handleSave} className={styles.savebtn}><i className="fa-regular fa-heart"></i>Save</button>
           </div>
+          <div className={styles.user}>
+            <img className={styles.sellerpic} src={seller.picture}></img>
+            <div className={styles.sellerinfo}>
+            <h6 className={styles.sellerusername}>{seller.username}</h6>
+            <p className={styles.sellerdate}>Member since: {seller.account_age}</p>
+            </div>
+          </div>
          </div>
+     
        </div>
     </div>
   )
   
 }
-
+/// {
+//   category: "Electronics"
+// description: "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support"
+// image: "https://api.lorem.space/image/watch?w=640&h=480&r=4101"
+// imagethree: "https://api.lorem.space/image/watch?w=640&h=480&r=5456"
+// imagetwo: "https://api.lorem.space/image/watch?w=640&h=480&r=3957"
+// posted_item_id: 18
+// price: "282"
+// title: "Rustic Rubber Pants"
+// user_id: 18
+// }
 export default ViewItem
