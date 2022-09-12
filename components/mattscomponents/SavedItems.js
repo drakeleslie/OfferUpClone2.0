@@ -6,6 +6,37 @@ function SavedItems(props) {
     const [savedItems, setSavedItems] = useState([]);
     const [data, setData] = useState({})
 
+    function updatePrice(element) {
+        // element is a saved item object
+        // get latest posted item
+        // save it as postItem
+        // compare postItem and element prices
+        // if different update price from postItem to element
+        // else return
+        console.log("here")
+        let id = element.posted_item_id
+        console.log("id", id);
+        axios.get(`/api/postedItems`, {
+            params: {
+                posted_item_id: id
+            }
+        }).then((res) => {
+            if (res.data[0].price != element.price) {
+                element.price = res.data[0].price
+            }
+            console.log('data.user_id', data.user_id)
+            console.log("res.data[0].item_id", res.data[0].item_id)
+            axios.patch(`/api/saved`, {
+                params: {
+                    price: res.data[0].price,
+                    user_id: data.user_id,
+                    item_id: res.data[0].item_id
+                }
+            })
+        })
+        return element;
+    }
+
     useEffect(() => {
         let dataObj = JSON.parse(localStorage.getItem('data'))
         setData(dataObj)
@@ -14,9 +45,17 @@ function SavedItems(props) {
                 user_id: dataObj.user_id
             }
         }).then((res) => {
-            setSavedItems(res.data);
+            // setSavedItems(res.data);
+            console.log("res.data", res.data)
+            let tempSaved = res.data;
+            tempSaved.forEach(element => 
+                updatePrice(element)       
+            );
+            console.log(tempSaved)
+            setSavedItems(tempSaved);
         })
     }, [])
+
 
     let userId = parseInt(data.user_id)
 
