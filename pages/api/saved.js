@@ -39,8 +39,8 @@ export default async function saved(req, res) {
          res.send(`${title} inserted into saved items`)
     } else {
       console.log(req.body.params)
-      const itemId = req.query.item_id;
-      const userId = req.query.user_id;
+      const itemId = req.body.params.item_id;
+      const userId = req.body.params.user_id;
       const price = req.body.params.price;
       console.log(itemId, userId, price);
       pool.query("UPDATE saved_items SET price=COALESCE($1, price) WHERE (user_id=$2 and item_id=$3) RETURNING *",
