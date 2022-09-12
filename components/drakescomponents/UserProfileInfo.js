@@ -1,25 +1,25 @@
-import Link from "next/link";
 import styles from "../../styles/Profile.module.css";
 import React, { useState, useEffect } from "react";
-import phoneIcon from "./Profile.Assets/telephone.png";
+
 //top portion of user page, provides user information (username, join date, pic etc..)
 const UserProfileInfo = ({ user }) => {
+  console.log(user);
   return (
     <>
       <div className={styles.profileInfoContainer}>
         <div className={styles.leftProfileInfo}>
           <div className={styles.leftProfileTop}>
             <div className={styles.leftProfileTopPic}>
-              <img src={user.picture.large} className={styles.profilePic} />
+              <img src={user.picture} className={styles.profilePic} />
             </div>
             <div className={styles.leftProfileTopUser}>
               <div className={styles.profileText}>
                 <p>
-                  <b>{user.login.username}</b>
+                  <b>{user.username}</b>
                 </p>
-                <p>Joined {user.registered.date.substring(0, 7)}</p>
+                <p>Joined {user.account_age}</p>
                 <p>
-                  {user.location.city}, {user.location.state}
+                  {user.city}, {user.state}
                 </p>
               </div>
             </div>

@@ -1,6 +1,7 @@
-import Header from "../johnscomponents/Header"
+import Header from "../../johnscomponents/Header"
 import ViewItem from "./ViewItem"
-import styles from "../../styles/ViewItem.module.css"
+import styles from "../../../styles/ViewItem.module.css"
+import Footer from "../../mattscomponents/Footer"
 const ViewItemContainer = () => {
   return (
     <div className="flex flex-col w-full min-h-screen text-black">
@@ -11,6 +12,7 @@ const ViewItemContainer = () => {
               <ViewItem />
             </main>
         </div>
+        <Footer />
     </div>
   )
 }
