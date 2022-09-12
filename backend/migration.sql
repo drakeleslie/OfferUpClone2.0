@@ -21,6 +21,7 @@ CREATE TABLE saved_items(
     price TEXT,
     category TEXT,
     description TEXT,
+    posted_item_id TEXT,
     image TEXT NOT NULL,
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES users(user_id)

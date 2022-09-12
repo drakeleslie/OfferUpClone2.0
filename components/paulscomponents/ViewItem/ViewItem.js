@@ -45,13 +45,15 @@ const ViewItem = () => {
       if (saved == true) {
         console.log('saved')
       } else {
+        console.log(json.posted_item_id)
         axios.post(`/api/saved`, {
                 user_id: dataObj.user_id,
                 title: json.title,
                 price: json.price,
                 category: json.category,
                 description: json.description,
-                image: currentImage
+                image: currentImage,
+                posted_item_id: json.posted_item_id
         }).then((res) => {
 
         })
