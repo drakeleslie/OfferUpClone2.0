@@ -1,7 +1,6 @@
 import React from 'react'
 import Header from '../components/johnscomponents/Header'
 import Footer from '../components/mattscomponents/Footer'
-import Link from 'next/link'
 import Newitem from '../components/kamscomponents/newitem'
 
 function PostItem() {

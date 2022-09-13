@@ -1,4 +1,3 @@
-
 import Header from "../johnscomponents/Header"
 import SavedItems from "./SavedItems"
 import Footer from "./Footer"
