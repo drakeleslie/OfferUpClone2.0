@@ -25,6 +25,21 @@ function AccountInfo() {
         })
     }, [])
 
+    const updatePage = (event) => {
+            let dataObj = JSON.parse(localStorage.getItem('data'))
+            console.log('dataObj', dataObj)
+            setData(dataObj)
+            axios.get(`/api/userPage`, {
+                params: {
+                    user_id: dataObj.user_id
+                }
+            }).then((res) => {
+                console.log("res.data", res.data[0])
+                setUserInfo(res.data);
+                localStorage.setItem('data', JSON.stringify(res.data[0]))
+            })
+    }
+
     const handleChangeUsername = (event) => {
         event.preventDefault();
             axios.patch(`/api/userPage`, {
@@ -36,6 +51,7 @@ function AccountInfo() {
                 let input = document.getElementById(event.target.id);
                   input.value = '';
                   input.placeholder = username;
+                  updatePage();
             })
     }
 
@@ -50,6 +66,7 @@ function AccountInfo() {
                 let input = document.getElementById(event.target.id);
                   input.value = '';
                   input.placeholder = password;
+                  updatePage();
             })
     }
 
@@ -64,6 +81,7 @@ function AccountInfo() {
                 let input = document.getElementById(event.target.id);
                   input.value = '';
                   input.placeholder = email;
+                  updatePage();
             })
     }
 
@@ -78,6 +96,7 @@ function AccountInfo() {
                 let input = document.getElementById(event.target.id);
                   input.value = '';
                   input.placeholder = city;
+                  updatePage();
             })
     }
 
@@ -92,6 +111,7 @@ function AccountInfo() {
                 let input = document.getElementById(event.target.id);
                   input.value = '';
                   input.placeholder = picture;
+                  updatePage();
             })
     }
 

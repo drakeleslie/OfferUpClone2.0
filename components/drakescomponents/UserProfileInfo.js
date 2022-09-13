@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 //top portion of user page, provides user information (username, join date, pic etc..)
 const UserProfileInfo = ({ user }) => {
   console.log(user);
+
   return (
     <>
       <div className={styles.profileInfoContainer}>
@@ -28,19 +29,19 @@ const UserProfileInfo = ({ user }) => {
             <div className={styles.boughtSoldFollowers}>
               <div className={styles.bsfContainer}>
                 <p>
-                  <b>*num*</b>
+                  <b>0</b>
                 </p>
                 <p>Bought</p>
               </div>
               <div className={styles.bsfContainer}>
                 <p>
-                  <b>*num*</b>
+                  <b>0</b>
                 </p>
                 <p>Sold</p>
               </div>
               <div className={styles.bsfContainer}>
                 <p>
-                  <b>*num*</b>
+                  <b>0</b>
                 </p>
                 <p>Followers</p>
               </div>
@@ -98,16 +99,16 @@ const UserProfileInfo = ({ user }) => {
               </p>
               <div className={styles.compliments}>
                 <p>
-                  <b>*num*</b> Item as described
+                  <b>0</b> Item as described
                 </p>
                 <p>
-                  <b>*num*</b> Friendly
+                  <b>0</b> Friendly
                 </p>
                 <p>
-                  <b>*num*</b> On time
+                  <b>0</b> On time
                 </p>
                 <p>
-                  <b>*num*</b> Communicative
+                  <b>0</b> Communicative
                 </p>
               </div>
             </div>
