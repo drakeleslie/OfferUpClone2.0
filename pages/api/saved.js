@@ -2,8 +2,6 @@ import { pool } from "../../backend/database";
 export default async function saved(req, res) {
     if (req.method === "GET") {
         const userId = req.query.user_id;
-        console.log(userId)
-        console.log(`Recieved Saved Request: ${req.body}`);
         await pool
           .query("SELECT * FROM saved_items WHERE (user_id = $1);", [userId])
           .then((data) => {
@@ -12,14 +10,12 @@ export default async function saved(req, res) {
     } else  if (req.method === "DELETE") {
         const userId = req.query.user_id;
         const itemId = req.query.item_id;
-        console.log(userId, itemId);
         pool
           .query(
             "DELETE FROM saved_items WHERE (user_id = $1 and item_id = $2) RETURNING *;",
             [userId, itemId]
           )
           .then((data) => {
-            console.log(data.rows);
             if (data.rows.length === 0) {
               res.sendStatus(404);
             } else {
@@ -38,17 +34,14 @@ export default async function saved(req, res) {
         [ title, price, category, description, image, user_id, posted_item_id ])
          res.send(`${title} inserted into saved items`)
     } else {
-      console.log(req.body.params)
       const itemId = req.body.params.item_id;
       const userId = req.body.params.user_id;
       const price = req.body.params.price;
-      console.log(itemId, userId, price);
       pool.query("UPDATE saved_items SET price=COALESCE($1, price) WHERE (user_id=$2 and item_id=$3) RETURNING *",
           [price, userId, itemId])
       .then((data) => {
           res.send(data.rows);
       });
     }
-   
   }
   
