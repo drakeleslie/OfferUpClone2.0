@@ -13,7 +13,7 @@ export default function Home() {
       </div>
     );
   } else {
-    console.log("no data");
+    //console.log("no data");
     return (
       <div>
         <Container currentUser={{}} />
