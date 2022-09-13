@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import styles from "../../../styles/Home.module.css";
-
-
 const Category = ({data}) => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -12,8 +10,6 @@ const Category = ({data}) => {
       url: "/api/posted",
     }).then((res) => setProducts(res.data));
   }, []);
-  const filterProducts = products.filter(item => item.title.toLowerCase() == data)
-  //EXPERIMENTAL SEARCH FUNCTION 
   function filterIt(arr, searchKey) {
     let result = [];
     arr.forEach((obj) => {
@@ -23,8 +19,6 @@ const Category = ({data}) => {
     });
     return result; 
   }
-  //EXPERIMENTAL SEARCH FUNCTION 
-
    if (filterIt(products, data).length == 0) {
     return (
         <>
@@ -68,5 +62,4 @@ const Category = ({data}) => {
   );
         }
 }
-
 export default Category;

@@ -37,15 +37,12 @@ const ViewItem = () => {
    }
    fetchData()
   }, [])
-
-  
-  const handleSave = (event) => {
+const handleSave = (event) => {
     event.target.innerHTML = 'Added to Saved!'
     if(dataObj) {
       if (saved == true) {
-        console.log('saved')
+
       } else {
-        console.log(json.posted_item_id)
         axios.post(`/api/saved`, {
                 user_id: dataObj.user_id,
                 title: json.title,
@@ -74,9 +71,7 @@ const ViewItem = () => {
     setCurrentImage(e.target.dataset.image)
 
  }
-console.log({seller})
-
-  return (
+return (
     <div>
        <div className={styles.biggrid}>
          <div className={styles.left}>
@@ -118,18 +113,6 @@ console.log({seller})
      
        </div>
     </div>
-  )
-  
+  )  
 }
-/// {
-//   category: "Electronics"
-// description: "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support"
-// image: "https://api.lorem.space/image/watch?w=640&h=480&r=4101"
-// imagethree: "https://api.lorem.space/image/watch?w=640&h=480&r=5456"
-// imagetwo: "https://api.lorem.space/image/watch?w=640&h=480&r=3957"
-// posted_item_id: 18
-// price: "282"
-// title: "Rustic Rubber Pants"
-// user_id: 18
-// }
 export default ViewItem

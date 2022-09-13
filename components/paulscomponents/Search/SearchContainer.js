@@ -2,7 +2,6 @@ import Header from "../../johnscomponents/Header"
 import SearchComp from "./SearchComp"
 import styles from "../../../styles/Home.module.css"
 import Footer from "../../mattscomponents/Footer"
-
 const SearchContainer = ({data}) => {
   return (
     <div className="flex flex-col w-full min-h-screen text-black">
@@ -17,5 +16,4 @@ const SearchContainer = ({data}) => {
     </div>
   )
 }
-
 export default SearchContainer
