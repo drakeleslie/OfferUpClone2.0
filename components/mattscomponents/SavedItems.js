@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import QuickSave from "./QuickSave";
 import Link from "next/link";
-import Image from "next/image";
 
 function SavedItems(props) {
     const [savedItems, setSavedItems] = useState([]);
@@ -11,14 +9,47 @@ function SavedItems(props) {
     useEffect(() => {
         let dataObj = JSON.parse(localStorage.getItem('data'))
         setData(dataObj)
+        console.log("data" , data)
+
         axios.get(`/api/saved`, {
             params: {
                 user_id: dataObj.user_id
             }
         }).then((res) => {
+            console.log("res.data", res.data)
+            res.data.forEach(element => 
+                updatePrice(element)   
+            );
+            console.log("after res.data", res.data)
             setSavedItems(res.data);
         })
     }, [])
+
+    function updatePrice(element) {
+        console.log("here")
+        let postedItemId = element.posted_item_id
+        console.log("postedItemId", postedItemId);
+        axios.get(`/api/postedItems`, {
+            params: {
+                posted_item_id: postedItemId
+            }
+        }).then((res) => {
+            console.log("res", res)
+            if (res.data[0].price != element.price) {
+                element.price = res.data[0].price
+                let dataObj = JSON.parse(localStorage.getItem('data'))
+                console.log('dataObj.user_id', dataObj.user_id)
+                axios.patch(`/api/saved`, {
+                    params: {
+                        item_id: element.item_id,
+                        user_id: element.user_id,
+                        price: res.data[0].price,
+                    }
+                })
+            }
+        })
+        return element;
+    }
 
     let userId = parseInt(data.user_id)
 

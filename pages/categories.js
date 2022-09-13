@@ -1,5 +1,5 @@
-import SearchContainer from "../components/paulscomponents/Search/SearchContainer";
 import { useRouter } from "next/router";
+import CategoriesContainer from "../components/paulscomponents/Categories/CategoriesContainer";
 //search page
 export default function Search() {
   const router = useRouter();
@@ -9,13 +9,13 @@ export default function Search() {
     console.log(data.data, 'data.data')
     return (
       <div>
-        <SearchContainer  data={data.data}/>
+        <CategoriesContainer  data={data.data}/>
       </div>
     );
   } else {
     return (
       <div>
-        <SearchContainer data={{}} />
+        <CategoriesContainer data={{}} />
       </div>
     );
   }

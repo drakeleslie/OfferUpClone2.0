@@ -1,12 +1,7 @@
 import { useRouter } from "next/router";
-import styles from "../../styles/ViewItem.module.css";
+import styles from "../../../styles/ViewItem.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Link from "next/link";
-import Footer from "../mattscomponents/Footer";
-import Image from "next/image";
-import { data } from "autoprefixer";
-import Router from "next/router";
 
 const ViewItem = () => {
   const [currentImage, setCurrentImage] = useState("");
@@ -49,6 +44,7 @@ const ViewItem = () => {
       if (saved == true) {
         console.log("saved");
       } else {
+        console.log(json.posted_item_id);
         axios
           .post(`/api/saved`, {
             user_id: dataObj.user_id,
@@ -57,6 +53,7 @@ const ViewItem = () => {
             category: json.category,
             description: json.description,
             image: currentImage,
+            posted_item_id: json.posted_item_id,
           })
           .then((res) => {});
         setSaved(true);

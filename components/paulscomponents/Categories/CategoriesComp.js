@@ -1,6 +1,6 @@
-import styles from "../../styles/Home.module.css"
-import SearchProduct from "./SearchProduct"
-const SearchComp = ({data}) => {
+import styles from "../../../styles/Home.module.css"
+import Category from "./Category"
+const CategoriesComp = ({data}) => {
 
   return (
     <div className="flex flex-row justify-center grow">
@@ -9,7 +9,7 @@ const SearchComp = ({data}) => {
          <div>
           <div>
            <div className={styles.gridbox}>
-              <SearchProduct data={data}/> 
+              <Category data={data}/> 
              <div></div>
            </div>
           </div>
@@ -20,4 +20,4 @@ const SearchComp = ({data}) => {
   )
 }
 
-export default SearchComp
+export default CategoriesComp

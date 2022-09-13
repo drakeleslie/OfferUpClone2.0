@@ -1,4 +1,4 @@
-import Container from "../components/paulscomponents/Container";
+import Container from "../components/paulscomponents/Home/Container";
 import { useRouter } from "next/router";
 //home page
 export default function Home() {

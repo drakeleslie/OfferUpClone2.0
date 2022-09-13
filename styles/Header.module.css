@@ -1,0 +1,18 @@
+.header{
+    margin-bottom: 1rem;
+    justify-content: left;
+}
+.categories{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: auto;
+
+}
+.category {
+    color: grey;
+    margin-right: auto;
+}
+.category:hover {
+    text-decoration: underline;
+}
