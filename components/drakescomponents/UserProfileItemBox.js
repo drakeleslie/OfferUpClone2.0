@@ -7,7 +7,7 @@ const UserProfileItemBox = ({ products }) => {
     <>
       {products.map((item) => (
         <Link
-          key={item.id + "g"}
+          key={item.posted_item_id + "g"}
           href={{
             pathname: "useritemview",
             query: { item: JSON.stringify(item) },
