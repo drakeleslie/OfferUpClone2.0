@@ -2,7 +2,6 @@ import Header from "../../johnscomponents/Header"
 import CategoriesComp from "./CategoriesComp"
 import styles from "../../../styles/Home.module.css"
 import Footer from "../../mattscomponents/Footer"
-
 const CategoriesContainer = ({data}) => {
   return (
     <div className="flex flex-col w-full min-h-screen text-black">
@@ -17,5 +16,4 @@ const CategoriesContainer = ({data}) => {
     </div>
   )
 }
-
 export default CategoriesContainer

@@ -42,7 +42,7 @@ const ViewItem = () => {
     event.target.innerHTML = "Added to Saved!";
     if (dataObj) {
       if (saved == true) {
-        console.log("saved");
+
       } else {
         console.log(json.posted_item_id);
         axios
@@ -69,12 +69,10 @@ const ViewItem = () => {
     setCurrentImage(e.target.dataset.image);
   };
   const handleClick1 = (e) => {
-    setSubImage1(currentImage);
-    setCurrentImage(e.target.dataset.image);
-  };
-  console.log({ seller });
-
-  return (
+    setSubImage1(currentImage)
+    setCurrentImage(e.target.dataset.image)
+ }
+return (
     <div>
       <div className={styles.biggrid}>
         <div className={styles.left}>
@@ -135,17 +133,7 @@ const ViewItem = () => {
         </div>
       </div>
     </div>
-  );
-};
-/// {
-//   category: "Electronics"
-// description: "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support"
-// image: "https://api.lorem.space/image/watch?w=640&h=480&r=4101"
-// imagethree: "https://api.lorem.space/image/watch?w=640&h=480&r=5456"
-// imagetwo: "https://api.lorem.space/image/watch?w=640&h=480&r=3957"
-// posted_item_id: 18
-// price: "282"
-// title: "Rustic Rubber Pants"
-// user_id: 18
-// }
-export default ViewItem;
+  )  
+}
+export default ViewItem
+

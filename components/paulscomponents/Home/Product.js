@@ -2,26 +2,13 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import styles from "../../../styles/Home.module.css";
-
-
 const Product = () => {
   const [products, setProducts] = useState([]);
-
   useEffect( () => {
-    // async function fetchData() {
-    //      await axios({
-    //       method: "get",
-    //       url: "https://api.escuelajs.co/api/v1/products",
-    //     }).then((res) => setProducts(res.data));
-    // }
-    let dataObj = JSON.parse(localStorage.getItem('data'))
     axios.get(`/api/posted`).then((res) => {
         setProducts(res.data);
     })
   }, []);
-  
-  //this is the latest commit
-  console.log(products)
   return (
     <>
       {products.map((item) => (
@@ -57,5 +44,4 @@ const Product = () => {
     </>
   );
 };
-
 export default Product;
