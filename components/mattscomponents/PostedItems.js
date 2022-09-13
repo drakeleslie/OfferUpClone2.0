@@ -26,7 +26,6 @@ function PostedItems() {
     const newList = postedItems.filter(
       (item) => item.posted_item_id != event.target.id
     );
-    console.log(newList);
     setPostedItems(newList);
     axios
       .delete(`/api/posted`, {

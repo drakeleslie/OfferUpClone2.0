@@ -3,21 +3,21 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 const SearchBar = () => {
-  const [state, setState] = useState([])
+  const [state, setState] = useState([]);
   const router = useRouter();
   const handleClick = (e) => {
     e.preventDefault();
-    console.log(state, 'state')
+    console.log(state, "state");
     router.push({
-      pathname: '/search',
+      pathname: "/search",
       query: {
-        data: state
-      }
+        data: state,
+      },
     });
   };
   const handleChange = (e) => {
-      setState(e.target.value)
-  }
+    setState(e.target.value);
+  };
   return (
     <div className="p-2 flex flex-row">
       <link
@@ -39,7 +39,6 @@ const SearchBar = () => {
         <button
           className="bg-[#00a87e] rounded-r-full w-10 flex justify-center pt-2.5"
           type="submit"
-          // onClick={handleClick}
         >
           <i className="fa fa-search text-white"></i>
         </button>

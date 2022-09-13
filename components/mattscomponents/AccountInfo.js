@@ -12,29 +12,25 @@ function AccountInfo() {
 
     useEffect(() => {
         let dataObj = JSON.parse(localStorage.getItem('data'))
-        console.log('dataObj', dataObj)
         setData(dataObj)
         axios.get(`/api/userPage`, {
             params: {
                 user_id: dataObj.user_id
             }
         }).then((res) => {
-            console.log("res.data", res.data[0])
             setUserInfo(res.data);
             localStorage.setItem('data', JSON.stringify(res.data[0]))
         })
     }, [])
 
-    const updatePage = (event) => {
+    const updatePage = () => {
             let dataObj = JSON.parse(localStorage.getItem('data'))
-            console.log('dataObj', dataObj)
             setData(dataObj)
             axios.get(`/api/userPage`, {
                 params: {
                     user_id: dataObj.user_id
                 }
             }).then((res) => {
-                console.log("res.data", res.data[0])
                 setUserInfo(res.data);
                 localStorage.setItem('data', JSON.stringify(res.data[0]))
             })
@@ -47,7 +43,7 @@ function AccountInfo() {
                     user_id: data.user_id,
                     username: username,
                 }
-            }).then((res) => {
+            }).then(() => {
                 let input = document.getElementById(event.target.id);
                   input.value = '';
                   input.placeholder = username;
