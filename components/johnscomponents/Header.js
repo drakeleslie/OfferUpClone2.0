@@ -1,6 +1,5 @@
 import Link from "next/link";
 import NavBar from "./NavBar";
-import Head from "next/head";
 
 const Header = ({ currentUser }) => {
   return (
