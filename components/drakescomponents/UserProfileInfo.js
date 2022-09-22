@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 
 //top portion of user page, provides user information (username, join date, pic etc..)
 const UserProfileInfo = ({ user }) => {
-  console.log(user);
-
   return (
     <>
       <div className={styles.profileInfoContainer}>

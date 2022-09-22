@@ -4,7 +4,6 @@ import styles1 from "../../styles/Profile.module.css";
 import UserProfileItemBox from "./UserProfileItemBox";
 
 const UserProfileItems = ({ user, products }) => {
-  console.log(products);
   if (products !== []) {
     return (
       <>

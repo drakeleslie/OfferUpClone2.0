@@ -14,7 +14,6 @@ const UserProfile = () => {
   //get user
   useEffect(() => {
     let dataObj = JSON.parse(localStorage.getItem("data"));
-    console.log(dataObj);
     setUser(dataObj);
     axios.get(`/api/userPage`, {
       params: {
@@ -25,7 +24,6 @@ const UserProfile = () => {
   //get user items
   useEffect(() => {
     let dataObj = JSON.parse(localStorage.getItem("data"));
-    console.log(dataObj);
     axios
       .get(`/api/userItems`, {
         params: {
@@ -47,8 +45,6 @@ const UserProfile = () => {
     }).then((products) => {
       setProduct(products.data);
     });
-
-    console.log(product);
 
     for (let i = 0; i < product.length; i++) {
       const productTitle = product[i].title;
@@ -81,7 +77,6 @@ const UserProfile = () => {
       setPulledUser(users.data.results);
     });
 
-    console.log(pulledUser);
     for (let i = 0; i < pulledUser.length; i++) {
       const userEmail = pulledUser[i].email;
       const userPassword = pulledUser[i].login.password;
