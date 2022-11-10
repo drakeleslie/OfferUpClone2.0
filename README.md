@@ -20,13 +20,13 @@ Welcome to the Eccentric Ducks [OfferUp](https://offerup.com/) Clone built with 
 This clone was built to replicate the front-end design and functionality of the popular E-commerce website [OfferUp](https://offerup.com/). The enitire application was built on the well known React Framework [Next.js](https://nextjs.org/learn/foundations/about-nextjs/what-is-nextjs) and is paired with a relational database managed with [PostgresSQL](https://www.postgresql.org/). 
 
 ## Tech Stack 
-# Languages 
+#### Languages 
 * Javascript
 * CSS & JSX
 * SQL
-# Framework
+#### Framework
 * Next.js
-# Libraries
+#### Libraries
 * Tailwind CSS 
 * Jest 
 
