@@ -49,7 +49,7 @@ const NavBar = () => {
         <div className="rounded hover:bg-grey-100">
           <div className="flex flex-col h-14 w-15 rounded p-2 relative hover:bg-gray-200 light:bg-blue-600 ">
             <svg
-              className="position-self-center w-13 h-16 hover:bg-blue-200 rounded-full"
+              className="position-self-center w-13 h-16 rounded-full"
               fill="currentColor"
               viewBox="7 3 18 18"
               xmlns="http://www.w3.org/2000/svg"
