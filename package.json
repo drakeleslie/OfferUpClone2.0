@@ -33,5 +33,20 @@
     "eslint-config-next": "12.2.5",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8"
-  }
+  },
+  "description": "![Welcome!](/public/offeruplogo.png) # Offer-Up Clone",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drakeleslie/OfferUpClone2.0.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drakeleslie/OfferUpClone2.0/issues"
+  },
+  "homepage": "https://github.com/drakeleslie/OfferUpClone2.0#readme"
 }

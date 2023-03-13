@@ -10,17 +10,27 @@ export default async function user(req, res) {
         res.send(data.rows);
       });
   } else {
-    console.log('req.body.params', req.body.params)
+    console.log("req.body.params", req.body.params);
     const data = req.body.params;
-    pool.query(`UPDATE users SET username=COALESCE($2, username),
+    pool
+      .query(
+        `UPDATE users SET username=COALESCE($2, username),
       password=COALESCE($3, password),
       email=COALESCE($4, email),
       city=COALESCE($5, city),
       picture=COALESCE($6, picture)
       WHERE (user_id=$1) RETURNING *;`,
-        [data.user_id, data.username, data.password, data.email, data.city, data.picture])
+        [
+          data.user_id,
+          data.username,
+          data.password,
+          data.email,
+          data.city,
+          data.picture,
+        ]
+      )
       .then((data) => {
         res.send("data.rows", data.rows);
-    });
-  }    
+      });
+  }
 }
