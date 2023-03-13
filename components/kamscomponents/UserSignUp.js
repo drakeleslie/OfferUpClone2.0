@@ -2,9 +2,7 @@
 import axios from "axios";
 import Link from "next/link";
 import React, { useState } from "react";
-import Router from 'next/router'
-
-
+import Router from "next/router";
 
 function UserSignUp() {
   const [newUsername, setNewUsername] = useState("");
@@ -12,25 +10,26 @@ function UserSignUp() {
   const [newPassword, setNewPassword] = useState("");
   const [newCity, setNewCity] = useState("");
   const [newState, setNewState] = useState("");
-  const [currentUser, setCurrentUser] = useState('')
+  const [currentUser, setCurrentUser] = useState("");
 
   const createNewUser = (event) => {
     event.preventDefault();
-    axios.post('/api/newUser', { 
-          newUsername: newUsername,
-          newEmail: newEmail,
-          newPassword: newPassword,
-          newCity: newCity, 
-          newState, newState
-    })
+    axios
+      .post("/api/newUser", {
+        newUsername: newUsername,
+        newEmail: newEmail,
+        newPassword: newPassword,
+        newCity: newCity,
+        newState: newState,
+        newPicture: "defaultuserpic.png",
+      })
       .then((response) => {
- 
-        if(response.status === 200) {
-          setCurrentUser(newUsername)
+        if (response.status === 200) {
+          setCurrentUser(newUsername);
           Router.push({
-            pathname: '/'
-          })
-        };
+            pathname: "/",
+          });
+        }
       });
   };
   return (
@@ -39,9 +38,12 @@ function UserSignUp() {
         <form>
           <div className="divide-y-4 divide-white  h-6 w-full text-center font-extrabold space-y-2 grid justify-items-stretch">
             <div className=" w-full flex justify-end text text-[#00a87e] ">
-            <Link href="/login" className="justify-self-end text-slate-400 -mt-6">
-              cancel
-            </Link>{" "}
+              <Link
+                href="/login"
+                className="justify-self-end text-slate-400 -mt-6"
+              >
+                cancel
+              </Link>{" "}
             </div>
             Sign Up
             <br></br> <br></br>
@@ -89,30 +91,30 @@ function UserSignUp() {
               />
               <div className=" grid  grid-cols-2 ">
                 <div className=" col-span-1 w- justify-self-start">
-                <label className="block text-left text-gray-700 text-sm font-bold mb-2 ">
-                  City
-                </label>
-                <input // City
-                  className="bg-white border-[#00a87e] border-2 shadow-inner rounded  p-2 flex-1  mr-4 w-[90%] "
-                  id="city"
-                  type="text"
-                  value={newCity}
-                  onChange={(event) => setNewCity(event.target.value)} 
-                  aria-label="city"
-                />
+                  <label className="block text-left text-gray-700 text-sm font-bold mb-2 ">
+                    City
+                  </label>
+                  <input // City
+                    className="bg-white border-[#00a87e] border-2 shadow-inner rounded  p-2 flex-1  mr-4 w-[90%] "
+                    id="city"
+                    type="text"
+                    value={newCity}
+                    onChange={(event) => setNewCity(event.target.value)}
+                    aria-label="city"
+                  />
                 </div>
                 <div>
-                <label className="block text-left text-gray-700 text-sm font-bold mb-2 ml-5">
-                  State
-                </label>
-                <input // state
-                  className="bg-white border-[#00a87e] border-2 shadow-inner rounded  p-2 flex-1 w-[90%] ml-5 "
-                  id="state"
-                  type="text"
-                  value={newState}
-                  onChange={(event) => setNewState(event.target.value)} 
-                  aria-label="state"
-                />
+                  <label className="block text-left text-gray-700 text-sm font-bold mb-2 ml-5">
+                    State
+                  </label>
+                  <input // state
+                    className="bg-white border-[#00a87e] border-2 shadow-inner rounded  p-2 flex-1 w-[90%] ml-5 "
+                    id="state"
+                    type="text"
+                    value={newState}
+                    onChange={(event) => setNewState(event.target.value)}
+                    aria-label="state"
+                  />
                 </div>
               </div>
             </div>

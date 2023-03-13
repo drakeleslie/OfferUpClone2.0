@@ -11,7 +11,7 @@ const NavBar = () => {
     let dataObj = JSON.parse(localStorage.getItem("data"));
     setData(dataObj);
   }, []);
-  
+
   return (
     <div className="">
       <nav className="flex pt-3 py-4 px-3">
@@ -23,12 +23,10 @@ const NavBar = () => {
         <img
           alt="somepicture"
           className="h-5 mt-3.5 ml-6"
-          src={
-            "https://freepikpsd.com/file/2019/10/location-icon-png-green-1-Transparent-Images.png"
-          }
+          src={"greenpointer.png"}
         ></img>
         <a className="text-[#00a87e] pl-1 pt-3 text-lg font-semibold">
-          {data ? data.city : "Location"}
+          {data ? data.city : "Location"}, {data ? data.state : "Location"}
         </a>
         <div className="ml-[400px] flex flex-col rounded hover:bg-zinc-200 p-2">
           <i className="fa fa-heart-o text-black pl-3.5"></i>
