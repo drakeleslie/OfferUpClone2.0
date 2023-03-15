@@ -18,7 +18,7 @@ const NavBar = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://ipinfo.io",
+      url: "https://ipinfo.io",
     }).then((response) => {
       console.log(response.data.city, response.data.region);
       setCurrentState(response.data.region);
