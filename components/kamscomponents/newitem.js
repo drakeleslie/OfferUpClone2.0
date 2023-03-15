@@ -23,6 +23,7 @@ function Newitem() {
         price: price,
         category: category,
         image: image,
+        description: description,
         user_id: data.user_id,
       })
       .then((data) => {
@@ -61,17 +62,6 @@ function Newitem() {
           <input
             require
             required
-            placeholder="category"
-            className="m-6 mb-1 border-[#000000] border-solid border-2 placeholder:text-center shadow-lg text-center valid:border-[#00a87e] "
-            value={category}
-            onChange={(event) => setCategory(event.target.value)}
-          />
-        </div>
-
-        <div className="flex justify-center">
-          <input
-            require
-            required
             placeholder="price"
             className="m-6 mb-1 border-[#000000] border-solid border-2 placeholder:text-center shadow-lg text-center valid:border-[#00a87e]"
             value={price}
@@ -88,6 +78,28 @@ function Newitem() {
             value={description}
             onChange={(event) => setDescription(event.target.value)}
           />
+        </div>
+        <div className="flex justify-center">
+          <select
+            onChange={(event) => setCategory(event.target.value)}
+            className="m-6 mb-1 h-7 w-2/5 border-[#000000] border-solid border-2 placeholder:text-center shadow-lg text-center "
+          >
+            <option key="Clothes" value="Clothes">
+              Clothes
+            </option>
+            <option key="Electronics" value="Electronics">
+              Electronics
+            </option>
+            <option key="Furniture" value="Furniture">
+              Furniture
+            </option>
+            <option key="Shoes" value="Shoes">
+              Shoes
+            </option>
+            <option key="Others" value="Others">
+              Others
+            </option>
+          </select>
         </div>
         <div className="flex justify-center">
           <button
