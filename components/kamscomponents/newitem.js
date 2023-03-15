@@ -17,89 +17,95 @@ function Newitem() {
   }, []);
   const createNewPost = (event) => {
     event.preventDefault();
-    axios.post("/api/posted", {
-      title: title,
-      price: price,
-      category: category,
-      image: image,
-      user_id: data.user_id,
-    })
-    .then((data) =>{
-      Router.push({
-        pathname: "selling"
-    })
-  })}
+    axios
+      .post("/api/posted", {
+        title: title,
+        price: price,
+        category: category,
+        image: image,
+        user_id: data.user_id,
+      })
+      .then((data) => {
+        Router.push({
+          pathname: "selling",
+        });
+      });
+  };
 
   return (
-    <div id="container" className=" flex justify-evenly mt-10 ml-14 h-/6 w-full">
-    
-      <form className=" justify-center flex flex-col border-solid border-4 border-slate-500 rounded-xl h-full w-3/6 max-w-2xl shadow-xl">
-        <div className="ml-14 flex justify-start">
+    <div id="container" className=" flex justify-center mt-20  h-/6 w-full">
+      <form className=" justify-center mr-2 flex flex-col border-solid border-1 h-full w-1/4 max-w-2xl shadow-xl">
+        <div className=" flex justify-center">
           <input
             require
-            required  
+            required
             placeholder="image URL"
-            className=" m-6 -mb-1 border-[#00a87e] border-solid border-2 rounded-full placeholder:text-center shadow-lg text-center required:border-red-500 valid:border-[#00a87e]"
+            className="m-6 mb-1 border-[#000000] border-solid border-2  placeholder:text-center shadow-lg text-center valid:border-[#00a87e]"
             value={image}
             onChange={(event) => setImage(event.target.value)}
           />
         </div>
 
-        <div className="ml-14 flex justify-start">
+        <div className="flex justify-center">
           <input
             require
-            required  
+            required
             placeholder="title"
-            className="m-6 -mb-1 border-[#00a87e] border-solid border-2 rounded-full placeholder:text-center shadow-lg text-center required:border-red-500 valid:border-[#00a87e] "
+            className="m-6 mb-1 border-[#000000] border-solid border-2  placeholder:text-center shadow-lg text-center valid:border-[#00a87e]"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
           />
         </div>
 
-        <div className="ml-14 flex justify-start">
+        <div className="flex justify-center">
           <input
             require
-            required  
+            required
             placeholder="category"
-            className="m-6 -mb-1 border-[#00a87e] border-solid border-2 rounded-full placeholder:text-center shadow-lg text-center required:border-red-500 valid:border-[#00a87e] "
+            className="m-6 mb-1 border-[#000000] border-solid border-2 placeholder:text-center shadow-lg text-center valid:border-[#00a87e] "
             value={category}
             onChange={(event) => setCategory(event.target.value)}
           />
         </div>
 
-        <div className=" ml-14 flex justify-start">
+        <div className="flex justify-center">
           <input
             require
-            required  
+            required
             placeholder="price"
-            className="m-6 -mb-1 border-[#00a87e] border-solid border-2 rounded-full placeholder:text-center shadow-lg text-center required:border-red-500 valid:border-[#00a87e] "
+            className="m-6 mb-1 border-[#000000] border-solid border-2 placeholder:text-center shadow-lg text-center valid:border-[#00a87e]"
             value={price}
             onChange={(event) => setPrice(event.target.value)}
           />
         </div>
 
-        <div className=" ml-14 flex justify-start">
+        <div className=" flex justify-center">
           <input
             require
-            required  
+            required
             placeholder="Description"
-            className="m-6 mb-1 border-[#00a87e] border-solid border-2 rounded-full placeholder:text-center shadow-lg text-center required:border-red-500 valid:border-[#00a87e]"
+            className="m-6 mb-1 border-[#000000] border-solid border-2 placeholder:text-center shadow-lg text-center valid:border-[#00a87e]"
             value={description}
             onChange={(event) => setDescription(event.target.value)}
           />
         </div>
-        <div className="flex justify-start"> 
-        <button className=" p-2 m-6 bg-yellow-400 rounded-full border-solid w-3/6 shadow-inner hover:bg-[#00a87e] required:border-red-500 valid:border-[#00a87e] disabled:bg-red-500"
-                onClick={createNewPost}
-                type="submit">
-                  submit
-        </button>
+        <div className="flex justify-center">
+          <button
+            className=" p-2 m-6 text-white  border-[#000000] bg-[#00a87e] border-solid w-3/6 shadow-inner  hover:bg-[#00a87eaf]"
+            onClick={createNewPost}
+            type="submit"
+          >
+            submit
+          </button>
         </div>
-        
       </form>
-      <img src={image} className="flex content-center h-52 w-52  rounded-full" alt="Image" />
-      
-      
+      <div className="justify-center ml-2 flex  border-solid border-1 h-full w-3/4 max-w-2xl shadow-xl">
+        <img
+          src={image ? image : "placeholderimage.webp"}
+          className="mt-10 mb-10 border-2 h-100 w-80"
+          alt={image ? image : "placeholderimage.webp"}
+        />
+      </div>
     </div>
 
     // <div id="container" className="h-4/6 w-full ">
