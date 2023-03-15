@@ -18,7 +18,7 @@ const NavBar = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "https://ipinfo.io",
+      url: "https://ipinfo.io/json?token=8dbf06d25041a7",
     }).then((response) => {
       console.log(response.data.city, response.data.region);
       setCurrentState(response.data.region);

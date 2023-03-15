@@ -3,6 +3,7 @@ import axios from "axios";
 import Link from "next/link";
 import React, { useState } from "react";
 import Router from "next/router";
+import { useEffect } from "react";
 
 function UserSignUp() {
   const [newUsername, setNewUsername] = useState("");
@@ -11,6 +12,20 @@ function UserSignUp() {
   const [newCity, setNewCity] = useState("");
   const [newState, setNewState] = useState("");
   const [currentUser, setCurrentUser] = useState("");
+  const [currentCity, setCurrentCity] = useState("");
+  const [currentState, setCurrentState] = useState("");
+  //get requests for current location, used to have a place holder
+  //****NEED API KEY FOR THIS TO WORK, TOO MANY GET REQUESTS****/
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "https://ipinfo.io/json?token=8dbf06d25041a7",
+    }).then((response) => {
+      console.log(response.data.city, response.data.region);
+      setCurrentState(response.data.region);
+      setCurrentCity(response.data.city);
+    });
+  }, []);
 
   var today = new Date();
   var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
@@ -105,6 +120,7 @@ function UserSignUp() {
                     className="bg-white border-[#00a87e] border-2 shadow-inner rounded  p-2 flex-1  mr-4 w-[90%] "
                     id="city"
                     type="text"
+                    placeholder={currentCity}
                     value={newCity}
                     onChange={(event) => setNewCity(event.target.value)}
                     aria-label="city"
@@ -118,6 +134,7 @@ function UserSignUp() {
                     className="bg-white border-[#00a87e] border-2 shadow-inner rounded  p-2 flex-1 w-[90%] ml-5 "
                     id="state"
                     type="text"
+                    placeholder={currentState}
                     value={newState}
                     onChange={(event) => setNewState(event.target.value)}
                     aria-label="state"
