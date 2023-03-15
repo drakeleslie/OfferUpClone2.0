@@ -15,7 +15,7 @@ function UserSignUp() {
   const [currentCity, setCurrentCity] = useState("");
   const [currentState, setCurrentState] = useState("");
   //get requests for current location, used to have a place holder
-  //****NEED API KEY FOR THIS TO WORK, TOO MANY GET REQUESTS****/
+  //****NEED API KEY FOR THIS TO WORK, TOO MANY GET REQUESTS 429 ERROR****/
   useEffect(() => {
     axios({
       method: "get",
@@ -28,7 +28,7 @@ function UserSignUp() {
   }, []);
 
   var today = new Date();
-  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var mm = String(today.getMonth() + 1).padStart(2, "0");
   var yyyy = today.getFullYear();
 
   today = yyyy + "-" + mm;
