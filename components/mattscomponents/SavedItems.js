@@ -117,27 +117,26 @@ function SavedItems() {
           </h2>
           {savedItems.map((item, i) => (
             <div key={i} className="flex flex-wrap box-border mt-4 max-w-xl">
-              <div className="hover:bg-zinc-200 flex-grow-0 display-block box-border pl-3 pr-12">
+              <div className="flex-grow-0 display-block box-border pl-3 pr-12">
                 <ul>
                   <li className="h-18 flex flex-row">
-                    <img src={item.image} className="h-16 rounded"></img>
+                    <img src={item.image} className="h-16 w-16 border-2 "></img>
                     <div className="flex flex-col">
-                      <div className="hover:underline pl-4 text-lg truncate max-w-lg">
+                      <div className=" pl-4 text-lg truncate max-w-lg">
                         ${item.price}
                       </div>
-                      <div className="hover:underline pl-4 text-lg truncate max-w-lg">
+                      <div className=" pl-4 text-lg truncate max-w-lg">
                         {item.title}
                       </div>
-                      <div
-                        className="hover:underline text-[#00a87e] font-semibold ml-4 text-sm pt-1 w-12"
+                      <button
+                        className="hover:text-[#00a87eb2] text-[#00a87e] font-semibold ml-4 text-sm pt-1 w-12"
                         id={item.item_id}
                         onClick={handleDelete}
                       >
                         Delete
-                      </div>
+                      </button>
                     </div>
                   </li>
-                  <hr className={"h-0.5 bg-zinc-200 mt-4"}></hr>
                 </ul>
               </div>
             </div>

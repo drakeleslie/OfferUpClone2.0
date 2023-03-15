@@ -89,7 +89,7 @@ function PostedItems() {
               key={i}
               className="flex flex-wrap box-border mt-4 max-w-xl pt-2"
             >
-              <div className="hover:bg-zinc-200 flex-grow-0 display-block box-border pl-3 pr-2">
+              <div className="flex-grow-0 display-block box-border pl-3 pr-2">
                 <ul>
                   <li className="h-18 flex flex-row">
                     <img src={item.image} className="h-16 rounded mt-2"></img>
@@ -102,7 +102,7 @@ function PostedItems() {
                       </div>
                       <div className="flex flex-row">
                         <button
-                          className=" hover:underline text-[#00a87e] font-semibold ml-4 text-sm pt-1 w-12 flex flex-row"
+                          className="hover:text-[#00a87eb2] text-[#00a87e] font-semibold ml-4 text-sm pt-1 w-12 flex flex-row"
                           id={item.posted_item_id}
                           onClick={handleDelete}
                         >

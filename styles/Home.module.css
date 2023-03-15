@@ -55,10 +55,9 @@
 .div1:hover {
   opacity: 0.4;
   background-color: grey;
+  border-radius: 25px;
   cursor: pointer;
-  text-decoration: underline;
 }
 .spacer {
-    height: 5rem;
+  height: 5rem;
 }
-
