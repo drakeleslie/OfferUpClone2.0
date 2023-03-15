@@ -4,12 +4,26 @@ import SearchBar from "./SearchBar";
 import { useState, useEffect } from "react";
 import Categories from "../paulscomponents/Categories/Categories";
 import styles from "../../styles/Header.module.css";
+import axios from "axios";
 
 const NavBar = () => {
   const [data, setData] = useState({});
+  const [currentCity, setCurrentCity] = useState("");
+  const [currentState, setCurrentState] = useState("");
   useEffect(() => {
     let dataObj = JSON.parse(localStorage.getItem("data"));
     setData(dataObj);
+  }, []);
+  //pulls city and state from the users geolocation.
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "http://ipinfo.io",
+    }).then((response) => {
+      console.log(response.data.city, response.data.region);
+      setCurrentState(response.data.region);
+      setCurrentCity(response.data.city);
+    });
   }, []);
 
   return (
@@ -22,11 +36,11 @@ const NavBar = () => {
         <SearchBar />
         <img
           alt="somepicture"
-          className="h-5 mt-3.5 ml-6"
+          className="h-5 w-5 mt-3.5 ml-6"
           src={"greenpointer.png"}
         ></img>
         <a className="text-[#00a87e] pl-1 pt-3 text-lg font-semibold">
-          {data ? data.city : "Location"}, {data ? data.state : "Location"}
+          {data ? data.city : currentCity}, {data ? data.state : currentState}
         </a>
         <div className="ml-[400px] flex flex-col rounded hover:bg-zinc-200 p-2">
           <i className="fa fa-heart-o text-black pl-3.5"></i>

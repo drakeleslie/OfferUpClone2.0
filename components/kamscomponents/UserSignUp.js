@@ -12,6 +12,12 @@ function UserSignUp() {
   const [newState, setNewState] = useState("");
   const [currentUser, setCurrentUser] = useState("");
 
+  var today = new Date();
+  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var yyyy = today.getFullYear();
+
+  today = yyyy + "-" + mm;
+
   const createNewUser = (event) => {
     event.preventDefault();
     axios
@@ -22,6 +28,7 @@ function UserSignUp() {
         newCity: newCity,
         newState: newState,
         newPicture: "defaultuserpic.png",
+        newAge: today,
       })
       .then((response) => {
         if (response.status === 200) {

@@ -7,9 +7,10 @@ export default function newUser(req, res) {
   const newCity = req.body.newCity;
   const newState = req.body.newState;
   const newPicture = req.body.newPicture;
+  const newAge = req.body.newAge;
   pool.query(
-    "INSERT INTO users(username, email, password, city, state, picture) VALUES ($1, $2, $3, $4, $5, $6)",
-    [newUserName, newEmail, newPassword, newCity, newState, newPicture]
+    "INSERT INTO users(username, email, password, city, state, picture, account_age) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+    [newUserName, newEmail, newPassword, newCity, newState, newPicture, newAge]
   );
   res.send(`user ${newUserName} created`);
 }
