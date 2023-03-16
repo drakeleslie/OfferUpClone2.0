@@ -41,27 +41,37 @@ const UserProfile = () => {
 
     axios({
       method: "get",
-      url: "https://api.escuelajs.co/api/v1/products",
+      url: "https://fakestoreapi.com/products/",
     }).then((products) => {
+      console.log(products);
       setProduct(products.data);
     });
-
+    console.log("pressed");
     for (let i = 0; i < product.length; i++) {
       const productTitle = product[i].title;
       const productPrice = product[i].price;
-      const productCategory = product[i].category.name;
+      // const productCategory = product[i].category.name;
+      let proCat = product[i].category;
+      switch (proCat) {
+        case "men's clothing":
+        case "women's clothing":
+        case "jewelery":
+          proCat = "Clothes";
+          break;
+      }
       const productDescription = product[i].description;
-      const productImage = product[i].images[0];
-      const productImageTwo = product[i].images[1];
-      const productImageThree = product[i].images[2];
+      // const productImage = product[i].images[0];
+      // const productImageTwo = product[i].images[1];
+      // const productImageThree = product[i].images[2];
+      const productImage = product[i].image;
       axios.post("/api/populatePostedItemsTB", {
         title: productTitle,
         price: productPrice,
-        category: productCategory,
+        category: proCat,
         description: productDescription,
         image: productImage,
-        imageTwo: productImageTwo,
-        imageThree: productImageThree,
+        // imageTwo: productImageTwo,
+        // imageThree: productImageThree,
         userId: Math.floor(Math.random() * 25) + 1,
       });
     }
@@ -104,8 +114,8 @@ const UserProfile = () => {
         <div className="flex grow flex-col">
           <main className="w-full max-w-screen-2xl my-0 mr-auto ml-auto">
             <UserProfileInfo user={user} />
-            <button onClick={handleSubmitItem}>press me 2nd</button>
-            <button onClick={handleSubmitUser}>press me 1st</button>
+            {/* <button onClick={handleSubmitItem}>press me 2nd</button>
+            <button onClick={handleSubmitUser}>press me 1st</button> */}
             <UserProfileItems user={user} products={postedItems} />
           </main>
         </div>
